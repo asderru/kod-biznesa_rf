@@ -47,7 +47,7 @@
             
             $this->layout = 'main-login';
             
-            $image = Yii::getAlias('@static') . '/cache/site/col-6_14.jpg';
+            $image = Yii::getAlias('@static') . '/cache/14/110-kod-biznesa-rf_col-3.webp';
             
             $form = new LoginForm();
             
