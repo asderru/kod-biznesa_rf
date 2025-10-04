@@ -2,13 +2,14 @@
     
     namespace frontend\controllers;
     
+    use core\edit\editors\Content\NoteEditor;
     use core\edit\entities\Admin\Information;
+    use core\edit\entities\Content\Note;
     use core\edit\entities\Content\Page;
     use core\edit\entities\Content\Review;
     use core\edit\entities\Library\Author;
     use core\edit\entities\Utils\Gallery;
     use core\edit\entities\Utils\Photo;
-    use core\edit\useCases\ContactService;
     use core\helpers\PrintHelper;
     use core\read\readers\Admin\InformationReader;
     use core\read\readers\Content\NoteReader;
@@ -17,25 +18,22 @@
     use core\read\readers\Library\AuthorReader;
     use core\read\readers\Utils\GalleryReader;
     use core\read\readers\Utils\PhotoReader;
-    use core\read\services\BreadcrumbsService;
-    use core\read\services\MetaService;
-    use core\read\services\SchemaService;
+    use core\tools\Constant;
+    use core\tools\params\Parametr;
     use Exception;
-    use frontend\controllers\admin\MainController;
-    use frontend\extensions\forms\ContactForm;
-    use JetBrains\PhpStorm\ArrayShape;
     use Throwable;
     use Yii;
+    use yii\helpers\ArrayHelper;
+    use yii\web\Controller;
     use yii\web\ErrorAction;
     use yii\web\Response;
     
-    class SiteController extends MainController
+    class SiteController extends Controller
     {
         public array $pageNotes = [];
         
         protected const int        TEXT_TYPE      = Information::TEXT_TYPE;
         protected const array      DEFAULT_FIELDS = Information::DEFAULT_FIELDS;
-        
         
         private InformationReader $sites;
         private PageReader        $pages;
@@ -44,7 +42,6 @@
         private PhotoReader       $photos;
         private AuthorReader      $authors;
         private ReviewReader      $reviews;
-        private ContactService    $service;
         
         public function __construct(
             $id,
@@ -56,36 +53,20 @@
             PhotoReader $photos,
             AuthorReader $authors,
             ReviewReader $reviews,
-            ContactService $service,
-            BreadcrumbsService $breadcrumbsService,
-            MetaService $metaService,
-            SchemaService $schemaService,
-            $config = [],
         )
         {
             parent::__construct(
                 $id, $module,
-                $breadcrumbsService,
-                $metaService,
-                $schemaService,
-                $config,
             );
-            $this->sites              = $sites;
-            $this->pages              = $pages;
-            $this->notes              = $notes;
-            $this->gallery            = $gallery;
-            $this->photos             = $photos;
-            $this->authors            = $authors;
-            $this->reviews            = $reviews;
-            $this->service            = $service;
-            $this->breadcrumbsService = $breadcrumbsService;
-            $this->metaService        = $metaService;
-            $this->schemaService      = $schemaService;
+            $this->sites   = $sites;
+            $this->pages   = $pages;
+            $this->notes   = $notes;
+            $this->gallery = $gallery;
+            $this->photos  = $photos;
+            $this->authors = $authors;
+            $this->reviews = $reviews;
         }
         
-        #[ArrayShape([
-            'error' => 'string[]',
-        ])]
         public function actions(): array
         {
             return [
@@ -96,17 +77,9 @@
             ];
         }
         
-        public function behaviors(): array
-        {
-            return
-                [
-                    //  CacheHelper::index(),
-                ];
-        }
-        
         public function actionIndex(): string|Response
         {
-            $package      = $this->sites->getFullPackedSite();
+            $package      = $this->sites->getFullPackedSite(Information::FULL_PACK_FIELDS);
             $rootPage     = $this->pages->getFullPackedRoot();
             $pages        = $this->pages->getMainArray(Page::FULL_PACK_FIELDS);
             $gallery      = $this->gallery->getModelById(2, Gallery::FULL_PACK_FIELDS);
@@ -122,28 +95,20 @@
             foreach ($pages as $page) {
                 $pageNotes[$page['id']] = $this->notes->getNotesArray($page['array_type'], $page['id']);
             }
-            $form = new ContactForm();
+            $notes = NoteEditor::getArray(
+                Constant::SITE_TYPE, Parametr::siteId(), Parametr::siteId(), Note::FULL_PACK_FIELDS,
+            );
+            ArrayHelper::multisort($notes, 'id');
+            $model = current($package);
             
-            if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-                try {
-                    $this->service->send($form);
-                    Yii::$app->session->setFlash('success', 'Спасибо за сообщение. Мы свяжемся с Вами в бижайшее время!');
-                    return $this->goHome();
-                }
-                catch (\Exception $e) {
-                    Yii::$app->errorHandler->logException($e);
-                    Yii::$app->session->setFlash('danger', 'Случилась ошибка при отправке сообщения. Попробуйте повторить позже.');
-                }
-                return $this->refresh();
-            }
-            $siteModel                       = current($package);
-            $this->view->params['siteModel'] = $siteModel;
+         // PrintHelper::print($team);
             
             return $this->render(
                 '@app/views/site/index',
                 [
-                    'model'        => $siteModel,
+                    'model'        => $model,
                     'rootPage'     => $rootPage,
+                    'notes'        => $notes,
                     'firstPage'    => $pages[2],
                     'pageNotes1'   => $pageNotes[2],
                     'secondPage'   => $pages[3],
@@ -152,7 +117,6 @@
                     'gallery'      => $gallery,
                     'photos'       => $photos,
                     'team'         => $team,
-                    'contactForm'  => $form,
                     'reviewsArray' => $reviewsArray,
                     'textType'     => self::TEXT_TYPE,
                 ],

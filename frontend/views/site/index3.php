@@ -40,7 +40,7 @@
 
 <!-- ================================= Banner Section Start =============================== -->
 <section class='homeCone-banner bg-overlay gradient-overlay overflow-hidden bg-img'
-         data-background-image="<?= Url::to('@static', true) . '/cache/site/110-110-kod-biznesa-rf_col-12.webp-ru_col-12.webp'; ?>">
+         data-background-image="<?= Url::to('@static', true) . '/cache/site/110-kod-biznesa-rf_col-12.webp'; ?>">
 
     <h1
             class='text-outline-white writing-mode position-absolute top-50 translate-y-middle-rotate text-white text-opacity-25 text-uppercase margin-left-80 z-index-2'>
@@ -103,7 +103,7 @@
                 <div class='homeC-service-item p-32 radius-12-px border border-neutral-500 bg-neutral-20'>
 
                     <div class='my-40 d-flex align-items-center justify-content-between gap-1'>
-                        <h1 class='text-base'>ЦФА</h1>
+                        <h4 class='text-base'>ЦФА</h4>
                     </div>
 
                     <p class='text-xl color-dark'>Выводим бизнес на рынок Цифровых финансовых активов.<br>
@@ -115,7 +115,7 @@
                 <div class='homeC-service-item p-32 radius-12-px border border-neutral-500 bg-neutral-20'>
 
                     <div class='my-40 d-flex align-items-center justify-content-between gap-1'>
-                        <h1 class='text-base'>Изготовление нейроконсультантов</h1>
+                        <h4 class='text-base'>Изготовление нейроконсультантов</h4>
                     </div>
 
                     <p class='text-xl color-dark'>Создаём искусственных ассистентов для бизнеса.<br>
@@ -128,7 +128,7 @@
                 <div class='homeC-service-item p-32 radius-12-px border border-neutral-500 bg-neutral-20'>
 
                     <div class='my-40 d-flex align-items-center justify-content-between gap-1'>
-                        <h1 class='text-base'>Партнёрам</h1>
+                        <h4 class='text-base'>Партнёрам</h4>
                     </div>
 
                     <p class='text-xl color-dark'>Предлагаем партнёрскую программу: <br>
@@ -140,7 +140,7 @@
                 <div class='homeC-service-item p-32 radius-12-px border border-neutral-500 bg-neutral-20'>
 
                     <div class='my-40 d-flex align-items-center justify-content-between gap-1'>
-                        <h1 class='text-base'>Группа в Telegram</h1>
+                        <h4 class='text-base'>Группа в Telegram</h4>
                     </div>
 
                     <p class='text-xl color-dark'>Присоединяйтесь к нашему сообществу в Telegram:<br>
@@ -200,7 +200,7 @@
                         <p>Мы помогаем российским компаниям (юрлицам и ИП) привлекать частные инвестиции с
                             использованием цифровых финансовых активов — законного инструмента, регулируемого ЦБ РФ.</p>
                         <ul>
-                            <li> • Инвестиционный аудит и подготовка бизнеса к выпуску ЦФА;</li>
+                            <li>Инвестиционный аудит и подготовка бизнеса к выпуску ЦФА;</li>
                             <li>Разработка и регистрация токенов на базе ОИС (операторов информационных систем);</li>
                             <li>Полный пакет документов: юридические, финансовые, стратегические;</li>
                             <li>Подготовка и защита токеномики проекта;</li>
@@ -209,14 +209,6 @@
                             <li>Сопровождение до поступления средств на расчётный счёт.</li>
                         </ul>
                     </div>
-                    <hr>
-                    <p>
-                        ⚡️ Мы работаем в формате «одного окна» — от диагностики проекта до фактического привлечения
-                        капитала.</p>
-                    <p>У нас есть партнёрская программа, которая позволяет зарабатывать, рекомендуя наши услуги
-                        компаниям. Для партнёров мы предоставляем материалы, скрипты и поддержку.</p>
-                    <p>📩 При заинтересованности напишите нам через форму обратной связи.
-                    </p>
                 </div>
             </div>
             <div class='col-xxl-1 d-xxl-block d-none'></div>
@@ -226,33 +218,39 @@
 
                 <h3 class='mb-24 text-base text-2xl-center'>Мы предлагаем</h3>
                 <ul>
-                    <li>1. <strong>ЦФА‑аудит и скоринг проекта</strong>
-                        <br>
+                    <li><h5>1. ЦФА‑аудит и скоринг проекта</h5>
                         Первичная диагностика компании, инвестиционный аудит и скоринг (3 рабочих дня).<br>
                         Результат — понимание, насколько проект готов к привлечению инвестиций через ЦФА.
                         <hr>
                     </li>
 
-                    <li>2. <strong>Подготовка бизнеса к выпуску ЦФА</strong>
+                    <li><h5>2. Подготовка бизнеса к выпуску ЦФА</h5>
                         Разработка токеномики, бизнес‑плана, финансовой модели, юридического пакета документов.<br>
                         Срок подготовки: 1,5–3 месяца.<br>
                         Стоимость: 500 000 ₽ (фиксированная оплата по договору).
                         <hr>
                     </li>
-                    <li>3. <strong>Выпуск цифровых финансовых активов (ЦФА)</strong>
-                        <br>
+                    <li><h5>3. Выпуск цифровых финансовых активов (ЦФА)</h5>
                         Осуществляем выпуск токенов через аккредитованных операторов информационных систем (ОИС).<br>
                         Полностью сопровождаем процесс до размещения токенов.<br>
                         После успешного привлечения инвестиций — комиссия 5% от суммы.
                         <hr>
                     </li>
-                    <li>4. <strong>Привлечение инвестиций через ЦФА</strong>
-                        <br> Привлекаем частных инвесторов (суммы от 20 млн ₽ до 1 млрд ₽).<br>
+                    <li><h5>4. Привлечение инвестиций через ЦФА</h5>
+                        Привлекаем частных инвесторов (суммы от 20 млн ₽ до 1 млрд ₽).<br>
                         Деньги поступают на расчётный счёт компании.<br>
                         Сопровождаем бизнес на всём цикле — от выпуска токенов до поступления средств.
                     </li>
                 </ul>
 
+                    <hr>
+                    <p>
+                        ⚡️ Мы работаем в формате «одного окна» — от диагностики проекта до фактического привлечения
+                        капитала.</p>
+                    <p>У нас есть партнёрская программа, которая позволяет зарабатывать, рекомендуя наши услуги
+                        компаниям. Для партнёров мы предоставляем материалы, скрипты и поддержку.</p>
+                    <p>📩 При заинтересованности напишите нам через форму обратной связи.
+                    </p>
             </div>
         </div>
     </div>
@@ -313,104 +311,6 @@
 </div>
 <!-- ================================= Marquee Section End =============================== -->
 
-<!-- ================================= Events Section Start =============================== -->
-
-<!-- Case Studies Area S t a r t -->
-<section class='case-studies-area' id='events'>
-    <div class='container'>
-        <div class='row'>
-            <div class='col-xl-12'>
-                <div class='section-title text-center'>
-                    <h4 class='highlight-title'>
-                        Изготовление нейроконсультантов</h4>
-                    <p>Группа компаний «КОД БИЗНЕСА» создаёт интеллектуальных ассистентов для бизнеса — 
-                        <strong>нейроконсультантов</strong>, которые помогают компаниям работать эффективнее.</p>
-                </div>
-            </div>
-        </div>
-        <div class='row g-4'>
-            <div class='col-lg-1 d-none d-lg-block'></div>
-            <div class='col-lg-6 col-md-6 col-sm-12 color-dark'>
-                <h4>📌 Возможности нейроконсультантов</h4>
-                <p>
-                    • 📊 Аналитика: рынок, конкуренты, финансовые модели.<br>
-                    • 👥 Работа с клиентами 24/7 (чат‑боты, голосовые ассистенты).<br>
-                    • ⚙️ Автоматизация процессов: HR, документооборот, обучение.<br>
-                    • 💡 Маркетинг и продажи: контент, персонализация, сопровождение сделок.
-                </p>
-                <h4>🔒 Безопасность и законность</h4>
-                <p>
-                    Мы уделяем особое внимание защите данных (при «Расширенном пакете»):</p>
-                <ul>
-                    <li>Работаем строго в рамках законодательства РФ (152‑ФЗ «О персональных данных»).</li>
-                    <li>Используем только российские серверы и дата‑центры.</li>
-                    <li>Обеспечиваем полную защиту и сохранность информации.</li>
-                </ul>
-                <p>
-                    Ваш бизнес получает не только инновационный инструмент, но и уверенность в безопасности и
-                    долгосрочной надёжности решений.</p>
-            </div>
-            <div class='col-lg-1 d-none d-lg-block'></div>
-            <div class='col-lg-4 col-md-6 col-sm-12'>
-                <h4>💰 Стоимость и сроки</h4>
-                <ul>
-                    <li><strong></strong>Базовый пакет — от <strong>50 000 ₽.</strong><br>
-                        ⏳ Срок: до 2 недель.<br>
-                        Один нейроконсультант под конкретную задачу.
-                    </li>
-                    <li><strong>Расширенный пакет</strong>  — от <strong>250 000 ₽.</strong><br>
-                        ⏳ Срок: от 1 месяца.<br>
-                        Комплексная система под задачи бизнеса (продажи, HR, маркетинг, аналитика).<br>
-                        Включает абонентское сопровождение и поддержку.
-                    </li>
-                </ul>
-                <h4>🚀 Для чего это бизнесу</h4>
-                <ul>
-                    <li>Снижение издержек.
-                    </li>
-                    <li>Ускорение процессов.
-                    </li>
-                    <li>Масштабирование бизнеса.
-                    </li>
-                    <li>Повышение эффективности и качества обслуживания клиентов.
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-        <div class='col-xl-12'>
-            <div class='section-title text-center'>
-                <h4 class='highlight-title'>
-                    ✅ Итог</h4>
-                <p><strong>Нейроконсультанты — это не мода, а новая реальность.</strong><br>
-                    Сегодня они становятся таким же обязательным инструментом, как когда‑то сайт или CRM.<br>
-                    📩 Хотите обсудить, каким может быть ваш нейроконсультант?<br>
-                    Напишите нам через форму обратной связи.
-                </p>
-            </div>
-        </div>
-        <div class='gallery-block'>
-            <div class='row'>
-                <?php
-                    foreach ($photos as $photo) { ?>
-
-                        <div class='col-sm-6 col-lg-4 col-xl-3 mb-4'>
-                            <div class='card'>
-                                <a href='<?= ImageHelper::getModelImageSource($photo, 12) ?>' class='gallery-item'>
-                                    <img alt='' src='<?= ImageHelper::getModelImageSource($photo, 3) ?>'>
-                                </a>
-                            </div>
-                        </div>
-
-                        <?php
-                    } ?>
-            </div>
-        </div>
-
-    </div>
-</section>
-<!-- End Case Studies Area -->
-
 <!-- ================================= Team Section Start =============================== -->
 <section class='expert-team space py-120 bg-neutral-20 position-relative'>
 
@@ -453,147 +353,26 @@
 
         <div class='expert-team-slider'>
 
-            <?php
-                $i = 0;
-                foreach ($team as $member):
-                    ?>
-                    <div class='expert-team-item mx-2'>
+           <div class='expert-team-item mx-2'>
                         <div class='expert-team-item__thumb pb-20 position-relative'>
                             <a class='d-block' href='team-details.html'>
                                 <img alt='' class='radius-12-px fit-img'
-                                     src='<?= ImageHelper::getModelImageSource($member, 12) ?>'>
+                                     src='https://static.110-kod-biznesa-rf_col-12.webp.ru/cache/team/7-batyr_col-12.webp'>
                             </a>
                         </div>
                         <div class='mt-20-px'>
                             <h4 class='mb-3'>
-                                <span class='hover-text-brand'><?= $member['title'] ?></span>
+                                <span class='hover-text-brand'>Батыр Исабаев</span>
                             </h4>
-                            <span class='text-neutral-500'><?= $member['contact'] ?></span>
+                            <span class='text-neutral-500'></span>
                             <hr>
-                            <?= $member['description'] ?>
-                        </div>
+                            <p>Предприниматель.<br>Инвестор.</p>                        </div>
                     </div>
-
-                <?php
-                endforeach;
-            ?>
-
-
-            <?php
-                $i = 0;
-                foreach ($team as $member):
-                    ?>
-                    <div class='expert-team-item mx-2'>
-                        <div class='expert-team-item__thumb pb-20 position-relative'>
-                            <a class='d-block' href='team-details.html'>
-                                <img alt='' class='radius-12-px fit-img'
-                                     src='<?= ImageHelper::getModelImageSource($member, 12) ?>'>
-                            </a>
-                        </div>
-                        <div class='mt-20-px'>
-                            <h4 class='mb-3'>
-                                <span class='hover-text-brand'><?= $member['title'] ?></span>
-                            </h4>
-                            <span class='text-neutral-500'><?= $member['contact'] ?></span>
-                            <hr>
-                            <?= $member['description'] ?>
-                        </div>
-                    </div>
-
-                <?php
-                endforeach;
-            ?>
 
         </div>
     </div>
 </section>
 <!-- ================================= Team Section End =============================== -->
-
-<!-- ================================= Testimonials Section Start =============================== -->
-
-<section class='homeC-testimonial space overflow-hidden position-relative bg-neutral-20'>
-
-    <h1 class='text-outline-neutral writing-mode position-absolute top-50 translate-y-middle-rotate text-white text-opacity-25 text-uppercase margin-left-80 z-index-2 h-100 text-center start-0'>
-        Партнеры пишут</h1>
-
-    <div class='container'>
-        <div class='section-heading max-w-804 mx-auto text-center mb-60'>
-            <div class='d-inline-flex align-items-center gap-2 text-base mb-3'>
-                <img alt='' src='/img/arrow-icon-two.png'>
-                <h4 class='mb-0 text-base'>Что говорят наши партнеры</h4>
-            </div>
-            <h2 class='mb-24'>Наши истории успеха</h2>
-            <p class='mb-0'>'Наши партнеры — наше главное вдохновение! Здесь вы найдете реальные истории успеха,
-                подтверждающие качество наших услуг и доверие, которое мы заслужили.'</p>
-
-        </div>
-
-        <div class='row gy-4 align-items-center'>
-
-            <div class='col-lg-7'>
-                <div class='position-relative'>
-
-                    <div class='homeC-testimonial-slider'>
-                        <?php
-                            foreach ($reviewsArray as $review):
-                                ?>
-                                <div class='homeC-testimonial-item'>
-                                    <p class='text-neutral-900 text-2xl fw-medium'><?= $review['model']['text'] ?></p>
-                                    <div class='d-flex align-items-center gap-4'>
-                                        <img alt='' class='w-60-px h-60-px rounded-circle '
-                                             src='<?= ImageHelper::getModelImageSource($review['person'], 3) ?>'>
-                                        <div class=''>
-                                            <h6 class='text-20 mb-10-px'><?= $review['person']['first_name'] ?> <?= $review['person']['last_name'] ?> </h6>
-                                            <span class='text-neutral-900'><?= $review['person']['position'] ?>.</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            <?php
-                            endforeach;
-                        ?>
-                    </div>
-
-                    <div class='slick-arrows position-absolute end-0 bottom-0 d-flex align-items-center gap-3 justify-content-start'>
-                        <button class='w-48-px h-48-px color-dark radius-8-px d-flex justify-content-center align-items-center border border-base text-base text-lg hover-bg-base bg-white hover-text-white position-relative top-0 end-0 start-0 mt-0 slick-arrow'
-                                id='homeC-testimonial-prev'
-                                type='button'>
-                            <svg class='icon-purple' height='16' viewBox='0 0 448 512' width='16'
-                                 xmlns='http://www.w3.org/2000/svg'>
-                                <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                <path d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z'/>
-                            </svg>
-                        </button>
-                        <button class='w-48-px h-48-px radius-8-px d-flex justify-content-center align-items-center border border-base text-base text-lg hover-bg-base bg-white hover-text-white position-relative top-0 end-0 start-0 mt-0 slick-arrow'
-                                id='homeC-testimonial-next'
-                                type='button'>
-                            <svg class='icon-purple' height='16' viewBox='0 0 448 512' width='16'
-                                 xmlns='http://www.w3.org/2000/svg'>
-                                <path d='M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z'/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class='col-lg-5'>
-                <div class='homeC-testimonial__thumb circle-border position-relative ps-lg-5'>
-                    <div class='position-relative max-w-306 max-h-306'>
-                        <img alt='' class='fit-img rounded-circle'
-                             src='/img/testimonial-image.png'>
-                        <span class='w-72-px h-72-px border border-white rounded-circle bg-base text-32 text-base-two d-inline-block d-flex justify-content-center align-items-center position-absolute top-50 end-0 translate-middle-y end--36'>
-                            <svg class='white-icon' viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg'>
-                                <path d='M448 296c0 66.3-53.7 120-120 120l-8 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l8 0c30.9 0 56-25.1 56-56l0-8-64 0c-35.3 0-64-28.7-64-64l0-64c0-35.3 28.7-64 64-64l64 0c35.3 0 64 28.7 64 64l0 32 0 32 0 72zm-256 0c0 66.3-53.7 120-120 120l-8 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l8 0c30.9 0 56-25.1 56-56l0-8-64 0c-35.3 0-64-28.7-64-64l0-64c0-35.3 28.7-64 64-64l64 0c35.3 0 64 28.7 64 64l0 32 0 32 0 72z'/>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================================= Feedback Section End =============================== -->
 
 <!-- Contact us Area S t a r t -->
 <section class='contact-us-area' id="feedback">

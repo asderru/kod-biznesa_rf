@@ -3,74 +3,20 @@
     use frontend\assets\AppAsset;
     use yii\helpers\Url;
     use yii\web\View;
-    
+
     
     /* @var $this View */
     /* @var $imgBackground string */
     /* @var $schemaData array */
     /* @var $content string */
     
-    
     AppAsset::register($this);
-    
-$model = $this->params['siteModel'];
-    
-    $contactAddress = json_decode($model['contact_address'], true);
-    $contactPhones  = json_decode($model['contact_phones'], true);
-    
-    // Получаем отдельные значения из адреса
-    $postalCode      = $contactAddress['postalCode'];
-    $streetAddress   = $contactAddress['streetAddress'];
-    $addressCountry  = $contactAddress['addressCountry'];
-    $addressLocality = $contactAddress['addressLocality'];
-    
+
     $this->beginContent('@app/views/layouts/main.php');
 ?>
 
 <div id='home'></div>
-<!--==============================
-Sidemenu
-============================== -->
-<div class='sidemenu-wrapper sidemenu-info '>
-    <div class='sidemenu-content'>
-        <button class='closeButton sideMenuCls'><i class='fas fa-times'></i></button>
-        <div class='widget  '>
-            <div class='th-widget-about'>
-                <div class='about-logo'>
-                    <a href='<?= Url::home() ?>'><img alt='sv-partner' src='/assets/img/logo.png'></a>
-                </div>
-                <p class='about-text'></p>
-            </div>
-        </div>
-        <div class='side-info mb-30'>
-            <div class='contact-list mb-20'>
-                <h4>Адрес офиса</h4>
-                <p><?= $postalCode ?>, <?= $addressLocality ?></p>
-                <p><?= $streetAddress ?></p>
-                <p><?= $addressCountry ?></p>
-            </div>
 
-            <div class='contact-list mb-20'>
-                <h4>Номер телефона</h4>
-                <?php
-                    foreach ($contactPhones as $phone): ?>
-                        <p class='mb-0'><?= $phone['label'] ?>: <?= $phone['number'] ?></p>
-                    <?php
-                    endforeach; ?>
-            </div>
-
-            <div class='contact-list mb-20'>
-                <h4>Адрес электронной почты</h4>
-                <?php
-                    if (!empty($model['contact_email'])): ?>
-                        <p class='mb-0'><?= $model['contact_email'] ?></p>
-                    <?php
-                    endif; ?>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <!--==============================
 Mobile Menu
@@ -78,23 +24,19 @@ Mobile Menu
 <div class='mobile-menu-wrapper'>
     <div class='mobile-menu-area'>
         <div class='mobile-logo'>
-            <a href='<?= Url::home() ?>'><img alt='Сила  Возрождения' src='/assets/img/logo.png'></a>
+            <a href='<?= Url::home() ?>'><img alt='Сила  Возрождения' src='/img/logo.webp'></a>
             <button class='menu-toggle'><i class='fa fa-times'></i></button>
         </div>
         <div class='mobile-menu'>
             <ul>
                         <li>
-                            <a class='main-menu_nav-link' href='<?= Url::home(true) ?>#home'>Благотворительный
-                                Фонд</a>
+                            <a class='main-menu_nav-link' href='<?= Url::home(true) ?>#home'>Главная</a>
                         </li>
                         <li>
                             <a class='main-menu_nav-link' href='<?= Url::home(true) ?>#finance'>Финансы</a>
                         </li>
                         <li>
-                            <a class='main-menu_nav-link' href='<?= Url::home(true) ?>#events'>Мероприятия</a>
-                        </li>
-                        <li>
-                            <a class='main-menu_nav-link' href='<?= Url::home(true) ?>#feedback'>Обратная связь</a>
+                            <a class='main-menu_nav-link' href='<?= Url::home(true) ?>#team'>Команда</a>
                         </li>
                         <li>
                             <a class='main-menu_nav-link' href='<?= Url::home(true) ?>#contact'>Контакты</a>
@@ -115,7 +57,7 @@ Header Area Start
                 <div class='col-auto'>
                     <!-- Logo Start -->
                     <a class='' href='<?= Url::home() ?>'>
-                        <img alt='logo' src='/assets/img/logo.png'>
+                        <img alt='logo' src='/img/logo.webp'>
                     </a>
                     <!-- Logo End -->
                 </div>
@@ -124,17 +66,13 @@ Header Area Start
                         <nav class='main-menu d-none d-lg-inline-block'>
                         <ul>
                             <li>
-                                <a class="main-menu_nav-link" href='<?=Url::home(true)?>#home'>Благотворительный
-                                    Фонд</a>
+                                <a class="main-menu_nav-link" href='<?=Url::home(true)?>#home'>Главная</a>
                             </li>
                             <li>
                                 <a class='main-menu_nav-link' href='<?=Url::home(true)?>#finance'>Финансы</a>
                             </li>
                             <li>
-                                <a class='main-menu_nav-link' href='<?=Url::home(true)?>#events'>Мероприятия</a>
-                            </li>
-                            <li>
-                                <a class='main-menu_nav-link' href='<?=Url::home(true)?>#feedback'>Обратная связь</a>
+                                <a class='main-menu_nav-link' href='<?=Url::home(true)?>#team'>Команда</a>
                             </li>
                             <li>
                                 <a class='main-menu_nav-link' href='<?=Url::home(true)?>#contact'>Контакты</a>
@@ -179,7 +117,7 @@ Header Area End
                 <div class='col-lg-3'>
                     <div class=''>
                         <a class='d-inline-block mb-4' href='/'>
-                            <img alt='' src='/assets/img/logo-white-2.png'>
+                            <img alt='' src='/img/logo-big.webp'>
                         </a>
                     </div>
                 </div>
@@ -189,7 +127,7 @@ Header Area End
                         <ul class='list-unstyled ps-0 d-flex flex-md-column gap-2'>
                             <li>
                                 <a class='hover-action text-neutral-30 hover-text-base-two  text-lg'
-                                   href='#'>info@sv-partner.ru</a>
+                                   href='#'>info@110-kod-biznesa-rf_col-12.webp.ru</a>
                             </li>
                         </ul>
                     </div>

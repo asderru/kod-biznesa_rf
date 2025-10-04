@@ -42,7 +42,7 @@
                 '@context'      => 'https://schema.org',
                 '@type'         => 'WebSite',
                 'url'           => Url::home(true),
-                'name'          => 'sv-partner.ru',
+                'name'          => '110-kod-biznesa-rf_col-12.webp.ru',
                 'description'   => strip_tags($model->description),
                 'inLanguage'    => 'ru',
                 'keywords'      => $keywords,

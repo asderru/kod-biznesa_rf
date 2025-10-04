@@ -1,18 +1,16 @@
 <?php
 
-    use core\helpers\ImageHelper;
-    use core\helpers\PrintHelper;
+    use core\read\helpers\ImageReader;
     use frontend\extensions\forms\ContactForm;
-    use yii\bootstrap5\ActiveForm;
-    use yii\bootstrap5\Html;
+    use yii\helpers\HtmlPurifier;
     use yii\helpers\Url;
     use yii\web\View;
-    use yii\widgets\MaskedInput;
 
     /* @var $this View */
     /* @var $model core\edit\entities\Admin\Information */
     /* @var $contactForm ContactForm */
     /* @var $rootPage array */
+    /* @var $notes array */
     /* @var $firstPage array */
     /* @var $pageNotes1 array */
     /* @var $secondPage array */
@@ -25,22 +23,13 @@
 
     $layoutId = '#frontend_views_site_index';
 
-    $contactAddress = json_decode($model['contact_address'], true);
-    $contactPhones  = json_decode($model['contact_phones'], true);
-
-    // Получаем отдельные значения из адреса
-    $postalCode      = $contactAddress['postalCode'];
-    $streetAddress   = $contactAddress['streetAddress'];
-    $addressCountry  = $contactAddress['addressCountry'];
-    $addressLocality = $contactAddress['addressLocality'];
-    $mainPage        = $rootPage['model'];
+    $mainPage = $rootPage['model'];
 
 ?>
 
-
 <!-- ================================= Banner Section Start =============================== -->
-<section class='homeCone-banner bg-overlay gradient-overlay overflow-hidden bg-img'
-         data-background-image="<?= Url::to('@static', true) . '/cache/site/110-sv-partner-ru_col-12.webp'; ?>">
+<section id="home" class='homeCone-banner bg-overlay gradient-overlay overflow-hidden bg-img'
+         data-background-image="<?= Url::to('@static', true) . '/cache/14/110-kod-biznesa-rf_col-12.webp'; ?>">
 
     <h1
             class='text-outline-white writing-mode position-absolute top-50 translate-y-middle-rotate text-white text-opacity-25 text-uppercase margin-left-80 z-index-2'>
@@ -66,13 +55,7 @@
                             КОД БИЗНЕСА
                         </h2>
                         <div class="text-xl">
-                            <h3>Наши цели:</h3>
-                            <ul>
-                                <li>развитие цифровой экономики России и культуры предпринимательства;</li>
-                                <li>создание современных решений на основе ЦФА и искусственного интеллекта;</li>
-                                <li>поддержка бизнеса на всех этапах роста и привлечения инвестиций;</li>
-                                <li>объединение людей и технологий для устойчивого развития регионов и страны.</li>
-                            </ul>
+                            <?= $model['description'] ?>
                         </div>
                     </div>
                 </div>
@@ -81,7 +64,6 @@
     </div>
 </section>
 <!-- ================================= Banner Section End =============================== -->
-
 
 <!-- ================================= First-Block Section Start =============================== -->
 <section class='homeC-service space'>
@@ -94,77 +76,60 @@
             </div>
             <h2 class='mb-24'>КОД БИЗНЕСА</h2>
             <p class='mb-0'>
-                <?= $firstPage['description'] ?>
+                <?= HtmlPurifier::process($notes[0]['description']) ?>
             </p>
         </div>
+
 
         <div class='homeC-service-slider'>
             <div class='px-3'>
                 <div class='homeC-service-item p-32 radius-12-px border border-neutral-500 bg-neutral-20'>
 
                     <div class='my-40 d-flex align-items-center justify-content-between gap-1'>
-                        <h4 class='text-base'>ЦФА</h4>
+                        <h4 class='text-base text-break'><?= HtmlPurifier::process($notes[1]['name']) ?></h4>
                     </div>
-
-                    <p class='text-xl color-dark'>Выводим бизнес на рынок Цифровых финансовых активов.<br>
-                        Готовим компании к привлечению инвестиций: от инвестиционного аудита и упаковки до выпуска
-                        токенов и поступления средств на расчётный счёт.</p>
+                    <?= HtmlPurifier::process($notes[1]['description']) ?>
                 </div>
             </div>
             <div class='px-3'>
                 <div class='homeC-service-item p-32 radius-12-px border border-neutral-500 bg-neutral-20'>
 
                     <div class='my-40 d-flex align-items-center justify-content-between gap-1'>
-                        <h4 class='text-base'>Изготовление нейроконсультантов</h4>
+                        <h4 class='text-base text-break'>
+                            <?= HtmlPurifier::process($notes[2]['name']) ?>
+                        </h4>
                     </div>
+                    <?= HtmlPurifier::process($notes[2]['description']) ?>
 
-                    <p class='text-xl color-dark'>Создаём искусственных ассистентов для бизнеса.<br>
-                        От простых решений (50 000 ₽, 2 недели) до комплексных систем (от 250 000 ₽, 1 месяц). Работаем
-                        в рамках законодательства РФ, обеспечиваем защиту персональных данных и абонентское
-                        сопровождение.</p>
+
                 </div>
             </div>
             <div class='px-3'>
                 <div class='homeC-service-item p-32 radius-12-px border border-neutral-500 bg-neutral-20'>
 
                     <div class='my-40 d-flex align-items-center justify-content-between gap-1'>
-                        <h4 class='text-base'>Партнёрам</h4>
+                        <h4 class='text-base text-break'>
+                            <?= HtmlPurifier::process($notes[3]['name']) ?>
+                        </h4>
                     </div>
+                    <?= HtmlPurifier::process($notes[3]['description']) ?>
 
-                    <p class='text-xl color-dark'>Предлагаем партнёрскую программу: <br>
-                        рекомендуйте бизнес, помогайте предпринимателям привлекать инвестиции и внедрять ИИ‑решения —
-                        получайте вознаграждение. Все инструменты, скрипты и поддержка от нас.</p>
+
                 </div>
             </div>
             <div class='px-3'>
                 <div class='homeC-service-item p-32 radius-12-px border border-neutral-500 bg-neutral-20'>
 
                     <div class='my-40 d-flex align-items-center justify-content-between gap-1'>
-                        <h4 class='text-base'>Группа в Telegram</h4>
+                        <h4 class='text-base text-break'>
+                            <?= HtmlPurifier::process($notes[4]['name']) ?>
+                        </h4>
                     </div>
+                    <?= HtmlPurifier::process($notes[4]['description']) ?>
 
-                    <p class='text-xl color-dark'>Присоединяйтесь к нашему сообществу в Telegram:<br>
-                        актуальные новости, кейсы, материалы по ЦФА и искусственному интеллекту, прямое общение с
-                        экспертами и ответы на вопросы.</p>
+
                 </div>
             </div>
-        </div>
-        <div class='slick-arrows d-flex align-items-center gap-3 mt-40 justify-content-center'>
-            <button type='button' id='homeC-service-prev'
-                    class='w-48-px h-48-px radius-8-px d-flex justify-content-center align-items-center border border-base text-base text-lg hover-bg-base bg-transparent hover-text-white position-relative top-0 end-0 start-0 mt-0'>
-                <svg class='icon-purple' xmlns='http://www.w3.org/2000/svg' width='16' height='16'
-                     viewBox='0 0 448 512'>
-                    <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                    <path d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z'/>
-                </svg>
-            </button>
-            <button type='button' id='homeC-service-next'
-                    class='w-48-px h-48-px radius-8-px d-flex justify-content-center align-items-center border border-base text-base text-lg hover-bg-base bg-transparent hover-text-white position-relative top-0 end-0 start-0 mt-0'>
-                <svg class='icon-purple' xmlns='http://www.w3.org/2000/svg' width='16' height='16'
-                     viewBox='0 0 448 512'>
-                    <path d='M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z'/>
-                </svg>
-            </button>
         </div>
     </div>
 </section>
@@ -194,20 +159,11 @@
                         <img alt='' class='choose-us-thumbs__one radius-16-px w-100'
                              src='/img/finance.jpg'>
                     </div>
-                    <div class="col-12 py-2">
-                        <h6 class="p-4">Цифровые финансовые активы (ЦФА)</h6>
-                        <h4>Группа компаний «КОД БИЗНЕСА»</h4>
-                        <p>Мы помогаем российским компаниям (юрлицам и ИП) привлекать частные инвестиции с
-                            использованием цифровых финансовых активов — законного инструмента, регулируемого ЦБ РФ.</p>
-                        <ul>
-                            <li>Инвестиционный аудит и подготовка бизнеса к выпуску ЦФА;</li>
-                            <li>Разработка и регистрация токенов на базе ОИС (операторов информационных систем);</li>
-                            <li>Полный пакет документов: юридические, финансовые, стратегические;</li>
-                            <li>Подготовка и защита токеномики проекта;</li>
-                            <li>Маркетинговая поддержка для выхода на рынок;</li>
-                            <li>Привлечение инвестиций от частных инвесторов через ЦФА;</li>
-                            <li>Сопровождение до поступления средств на расчётный счёт.</li>
-                        </ul>
+                    <div class='col-12 py-2'>
+                        <h6 class='p-4'>
+                            <?= HtmlPurifier::process($notes[5]['name']) ?>
+                        </h6>
+                        <?= HtmlPurifier::process($notes[5]['description']) ?>
                     </div>
                 </div>
             </div>
@@ -218,48 +174,37 @@
 
                 <h3 class='mb-24 text-base text-2xl-center'>Мы предлагаем</h3>
                 <ul>
-                    <li><h5>1. ЦФА‑аудит и скоринг проекта</h5>
-                        Первичная диагностика компании, инвестиционный аудит и скоринг (3 рабочих дня).<br>
-                        Результат — понимание, насколько проект готов к привлечению инвестиций через ЦФА.
+                    <li><h5><?= HtmlPurifier::process($notes[6]['name']) ?></h5>
+                        <?= HtmlPurifier::process($notes[6]['description']) ?>
+
                         <hr>
                     </li>
 
-                    <li><h5>2. Подготовка бизнеса к выпуску ЦФА</h5>
-                        Разработка токеномики, бизнес‑плана, финансовой модели, юридического пакета документов.<br>
-                        Срок подготовки: 1,5–3 месяца.<br>
-                        Стоимость: 500 000 ₽ (фиксированная оплата по договору).
+                    <li><h5><?= HtmlPurifier::process($notes[7]['name']) ?></h5>
+                        <?= HtmlPurifier::process($notes[7]['description']) ?>
+
                         <hr>
                     </li>
-                    <li><h5>3. Выпуск цифровых финансовых активов (ЦФА)</h5>
-                        Осуществляем выпуск токенов через аккредитованных операторов информационных систем (ОИС).<br>
-                        Полностью сопровождаем процесс до размещения токенов.<br>
-                        После успешного привлечения инвестиций — комиссия 5% от суммы.
+                    <li><h5><?= HtmlPurifier::process($notes[8]['name']) ?></h5>
+                        <?= HtmlPurifier::process($notes[8]['description']) ?>
+
                         <hr>
                     </li>
-                    <li><h5>4. Привлечение инвестиций через ЦФА</h5>
-                        Привлекаем частных инвесторов (суммы от 20 млн ₽ до 1 млрд ₽).<br>
-                        Деньги поступают на расчётный счёт компании.<br>
-                        Сопровождаем бизнес на всём цикле — от выпуска токенов до поступления средств.
+                    <li><h5><?= HtmlPurifier::process($notes[9]['name']) ?></h5>
+                        <?= HtmlPurifier::process($notes[9]['description']) ?>
+
+                        <hr>
                     </li>
                 </ul>
 
-                    <hr>
-                    <p>
-                        ⚡️ Мы работаем в формате «одного окна» — от диагностики проекта до фактического привлечения
-                        капитала.</p>
-                    <p>У нас есть партнёрская программа, которая позволяет зарабатывать, рекомендуя наши услуги
-                        компаниям. Для партнёров мы предоставляем материалы, скрипты и поддержку.</p>
-                    <p>📩 При заинтересованности напишите нам через форму обратной связи.
-                    </p>
+                <?= HtmlPurifier::process($notes[10]['description']) ?>
+
             </div>
         </div>
     </div>
 
 
 </section>
-<!-- ================================= Second-Block Us Section End =============================== -->
-
-
 <!-- ================================= Marquee Section Start =============================== -->
 <div class='marquee-area'>
     <div class='container-fluid p-0'>
@@ -312,7 +257,7 @@
 <!-- ================================= Marquee Section End =============================== -->
 
 <!-- ================================= Team Section Start =============================== -->
-<section class='expert-team space py-120 bg-neutral-20 position-relative'>
+<section id='team' class='expert-team space py-120 bg-neutral-20 position-relative'>
 
     <h1 class='text-outline-neutral writing-mode position-absolute top-50 translate-y-middle-rotate text-white text-opacity-25 text-uppercase margin-left-80 z-index-2 h-100 text-center start-0'>
         команда экспертов</h1>
@@ -328,54 +273,46 @@
             </div>
             <div class=''>
                 <p class='mb-24 max-w-416'>Опыт. Знания. Решения — наши эксперты на вашей стороне.</p>
-                <div class='slick-arrows d-flex align-items-center gap-3 mt-40 justify-content-start'>
-                    <button class='w-48-px h-48-px radius-8-px d-flex justify-content-center align-items-center border border-base text-base text-lg hover-bg-base bg-transparent hover-text-white position-relative top-0 end-0 start-0 mt-0 slick-arrow'
-                            id='expert-team-prev'
-                            type='button'>
-                        <svg class='icon-purple' height='16' viewBox='0 0 448 512' width='16'
-                             xmlns='http://www.w3.org/2000/svg'>
-                            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                            <path d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z'/>
-                        </svg>
-                    </button>
-                    <button class='w-48-px h-48-px radius-8-px d-flex justify-content-center align-items-center border border-base text-base text-lg hover-bg-base bg-transparent hover-text-white position-relative top-0 end-0 start-0 mt-0 slick-arrow'
-                            id='expert-team-next'
-                            type='button'>
-                        <svg class='icon-purple' height='16' viewBox='0 0 448 512' width='16'
-                             xmlns='http://www.w3.org/2000/svg'>
-                            <path d='M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z'/>
-                        </svg>
-                    </button>
-                </div>
+
             </div>
         </div>
 
 
         <div class='expert-team-slider'>
-
-           <div class='expert-team-item mx-2'>
-                        <div class='expert-team-item__thumb pb-20 position-relative'>
-                            <a class='d-block' href='team-details.html'>
-                                <img alt='' class='radius-12-px fit-img'
-                                     src='https://static.sv-partner.ru/cache/team/7-batyr_col-12.webp'>
-                            </a>
-                        </div>
-                        <div class='mt-20-px'>
-                            <h4 class='mb-3'>
-                                <span class='hover-text-brand'>Батыр Исабаев</span>
-                            </h4>
-                            <span class='text-neutral-500'></span>
-                            <hr>
-                            <p>Предприниматель.<br>Инвестор.</p>                        </div>
-                    </div>
+<?php foreach ($team as $member): ?>
+            <div class='expert-team-item mx-2'>
+                <div class='expert-team-item__thumb pb-20 position-relative'>
+                    <a class='d-block' href='team-details.html'>
+                        <img alt='' class='radius-12-px fit-img'
+                             src='<?= ImageReader::getModelImageSource($member, 12) ?>'>
+                    </a>
+                </div>
+                <div class='mt-20-px'>
+                    <h4 class='mb-3'>
+                        <span class='hover-text-brand'><?= HtmlPurifier::process($member['title']) ?></span>
+                    </h4>
+                    <span class='text-neutral-500'></span>
+                    <hr>
+                    <p><?= HtmlPurifier::process($member['description']) ?>.</p></div>
+            </div>
+<?php endforeach; ?>
 
         </div>
     </div>
 </section>
 <!-- ================================= Team Section End =============================== -->
+<!-- ================================= Second-Block Us Section End =============================== -->
+<div class='container'>
+    <!--Alert Area  ##############################################-->
+    <div class='section-heading max-w-804 mx-auto text-center mb-60'>
+        <div class='mb-60'></div>
+
+        <?= HtmlPurifier::process($model['text']) ?>
+    </div>
+</div>
 
 <!-- Contact us Area S t a r t -->
-<section class='contact-us-area' id="feedback">
+<section class='contact-us-area bg-neutral-20' id='contact'>
     <div class='container'>
         <div class='row g-4'>
             <div class='col-lg-6'>
@@ -384,17 +321,17 @@
                         Свяжитесь с нами
                     </h4>
                     <h4 class='title'>
-                        Давайте работать вместе
+                        <?= HtmlPurifier::process($notes[11]['name']) ?>
                     </h4>
-                    <p class=text-xl'>
-                        <?= $model['description'] ?>
-
-                    </p>
+                    <?= HtmlPurifier::process($notes[11]['description']) ?>
 
                 </div>
+            </div>
+            <div class='col-lg-6'>
                 <div class='contact-point'>
                     <ul class='listing'>
-                        <li class='single-point animate__animated animate__fadeInLeft wow' data-wow-delay='0.2s'>
+                        <li class='single-point animate__animated animate__fadeInLeft wow'
+                            data-wow-delay='0.2s'>
                             <div class='icon'>
                                 <svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'
                                      viewBox='0 0 10 10' fill='none'>
@@ -406,10 +343,11 @@
                                             fill='white'/>
                                 </svg>
                             </div>
-                            <h4 class='title'>Персональный подход</h4>
+                            <h4 class='title'>Уникальная траектория сотрудничества</h4>
 
                         </li>
-                        <li class='single-point animate__animated animate__fadeInLeft wow' data-wow-delay='0.2s'>
+                        <li class='single-point animate__animated animate__fadeInLeft wow'
+                            data-wow-delay='0.2s'>
                             <div class='icon'>
                                 <svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'
                                      viewBox='0 0 10 10' fill='none'>
@@ -421,7 +359,7 @@
                                             fill='white'/>
                                 </svg>
                             </div>
-                            <h4 class='title'>Быстрый ответ</h4>
+                            <h4 class='title'>Своевременная поддержка</h4>
                         </li>
                     </ul>
                 </div>
@@ -443,103 +381,10 @@
                             </svg>
                         </div>
                         <div class='content'>
-                            <h4 class='highlight'>
-                                Есть вопросы? Звоните!
-                            </h4> <?php
-                                foreach ($contactPhones as $phone): ?>
-                                    <p class='pera'><a
-                                                class='text-neutral-900 fw-semibold text-lg d-block hover-text-brand'
-                                                href='tel:<?= $phone['number'] ?>'>
-                                            <?= $phone['number'] ?></a>
-
-                                    </p>
-                                <?php
-                                endforeach; ?>
-
+                            <a href="https://t.me/KodBiznesa_1">https://t.me/KodBiznesa_1</a><br>
+                            <a href="https://t.me/chifrovanie">https://t.me/chifrovanie</a><br>
                         </div>
                     </div>
-                    <div class='contact-card'>
-                        <div class='icon'>
-                            <svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'
-                                 fill='none'>
-                                <path
-                                        d='M34.1388 5H5.86125C4.63868 5.00132 3.46656 5.48758 2.60207 6.35207C1.73758 7.21656 1.25132 8.38868 1.25 9.61125V30.3888C1.25132 31.6113 1.73758 32.7834 2.60207 33.6479C3.46656 34.5124 4.63868 34.9987 5.86125 35H34.1388C35.3613 34.9987 36.5334 34.5124 37.3979 33.6479C38.2624 32.7834 38.7487 31.6113 38.75 30.3888V9.61125C38.7487 8.38868 38.2624 7.21656 37.3979 6.35207C36.5334 5.48758 35.3613 5.00132 34.1388 5ZM5.86125 7.5H34.1388C34.6985 7.50066 35.2351 7.72331 35.6309 8.1191C36.0267 8.51489 36.2493 9.05152 36.25 9.61125V10.5675L20 21.0138L3.75 10.5675V9.61125C3.75066 9.05152 3.97331 8.51489 4.3691 8.1191C4.76489 7.72331 5.30152 7.50066 5.86125 7.5ZM34.1388 32.5H5.86125C5.30152 32.4993 4.76489 32.2767 4.3691 31.8809C3.97331 31.4851 3.75066 30.9485 3.75 30.3888V13.54L19.3237 23.5513C19.5254 23.681 19.7602 23.75 20 23.75C20.2398 23.75 20.4746 23.681 20.6763 23.5513L36.25 13.54V30.3888C36.2493 30.9485 36.0267 31.4851 35.6309 31.8809C35.2351 32.2767 34.6985 32.4993 34.1388 32.5Z'
-                                        fill='white'/>
-                            </svg>
-                        </div>
-                        <div class='content'>
-                            <h4 class='highlight'>
-                                Наш Email
-                            </h4>
-                            <p class='pera'>info@sv-partner.ru</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='col-lg-6'>
-                <div class='contact-form'>
-                    <div class='section-title'>
-                        <h4 class='title text-center'>
-                            Мы на связи
-                        </h4>
-                    </div>
-                    <?php
-                        $form = ActiveForm::begin([
-                                'id'          => 'contactForm',
-                                'options'     => [
-                                        'class' => 'row', // добавляем класс row для основной формы
-                                ],
-                                'fieldConfig' => [
-                                        'template'     => '<div class="col-md-12"><div class="form-group">{input}{error}</div></div>',
-                                        'inputOptions' => [
-                                                'class' => 'form-control', // базовый класс для всех инпутов
-                                        ],
-                                ],
-                        ]); ?>
-
-                    <?= $form->field($contactForm, 'name')->textInput([
-                            'placeholder' => 'Ваше имя',
-                            'id'          => 'name',
-                    ]) ?>
-
-                    <?= $form->field($contactForm, 'email')->textInput([
-                            'placeholder' => 'Ваш Email',
-                            'id'          => 'email',
-                            'type'        => 'email',
-                    ]) ?>
-
-                    <?= $form->field($contactForm, 'phone')->widget(MaskedInput::class, [
-                            'mask'          => '+9(999)999-99-99',
-                            'options'       => [
-                                    'placeholder' => 'Ваш контактный телефонный номер',
-                                    'class'       => 'form-control',
-                            ],
-                            'clientOptions' => [
-                                    'greedy'          => false,
-                                    'clearIncomplete' => true,
-                            ],
-                    ]) ?>
-
-                    <?= $form->field($contactForm, 'body')->textarea([
-                            'placeholder' => 'Ваше сообщение ...',
-                            'id'          => 'message',
-                            'rows'        => 4,
-                    ]) ?>
-
-                    <?= $form->field($contactForm, 'subject')->hiddenInput(['value' => 'Форма обратной связи сайта'])->label(false);
-                    ?>
-                    <div class="col-md-12">
-                        <div class="form-group mt-15 text-end">
-                            <?= Html::submitButton('Отправить', [
-                                    'class' => 'btn btn-lg global-btn',
-                                    'type'  => 'submit',
-                            ]) ?>
-                        </div>
-                    </div>
-
-                    <?php
-                        ActiveForm::end(); ?>
-
                 </div>
             </div>
         </div>

@@ -2,11 +2,11 @@
     
     return [
         // Основные параметры приложения
-        'adminEmail'                    => 'admin@sv-partner.ru',
-        'supportEmail'                  => 'support@sv-partner.ru',
-        'senderEmail'                   => 'noreply@sv-partner.ru',
-        'orderEmail'                    => 'order@sv-partner.ru',
-        'senderName'                    => 'sv-partner.ru mailer',
+        'adminEmail'                    => 'admin@110-kod-biznesa-rf_col-12.webp.ru',
+        'supportEmail'                  => 'support@110-kod-biznesa-rf_col-12.webp.ru',
+        'senderEmail'                   => 'noreply@110-kod-biznesa-rf_col-12.webp.ru',
+        'orderEmail'                    => 'order@110-kod-biznesa-rf_col-12.webp.ru',
+        'senderName'                    => '110-kod-biznesa-rf_col-12.webp.ru mailer',
         
         // Пользовательские настройки
         'user.passwordResetTokenExpire' => 3600,              // 1 час
@@ -146,9 +146,9 @@
         'notifications'                 => [
             'email' => [
                 'enabled'   => true,
-                'fromEmail' => 'noreply@sv-partner.ru',
+                'fromEmail' => 'noreply@110-kod-biznesa-rf_col-12.webp.ru',
                 'fromName'  => 'System Notifications',
-                'replyTo'   => 'support@sv-partner.ru',
+                'replyTo'   => 'support@110-kod-biznesa-rf_col-12.webp.ru',
             ],
             'sms'   => [
                 'enabled'  => YII_ENV_PROD,
