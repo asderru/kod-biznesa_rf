@@ -1,0 +1,138 @@
+//Alumni+Sans:wght@300;400;500;
+//Montserrat:wght@300;400;500;600
+//Open+Sans:wght@300;400;500;700;
+//Oswald:wght@300;400;
+$serif-1: 'Merriweather', serif;
+$serif-2: 'Roboto Slab', serif;
+$serif-3: 'Playfair Display', serif;
+$serif-4: 'Lora', serif;
+$serif-5: 'Vollkorn', serif;
+$serif-6: 'EB Garamond', serif;
+$serif-7: 'Noto Serif', serif;
+$serif-8: 'PT Serif', serif;
+$serif-9: 'Alegreya', serif;
+$serif-10: 'Old Standard TT', serif;
+$serif-11: 'Cormorant Garamond', serif;
+$serif-12: 'Tinos', serif;
+$serif-13: 'IBM Plex Serif', serif;
+$serif-14: 'Prata', serif;
+$serif-15: 'Alice', serif;
+$serif-16: 'Playfair Display SC', serif;
+$serif-17: 'PT Serif Caption', serif;
+$serif-18: 'Oranienbaum', serif;
+$serif-19: 'Cormorant', serif;
+$serif-20: 'Alegreya SC', serif;
+$serif-21: 'Gabriela', serif;
+$serif-22: 'Cormorant SC', serif;
+$serif-23: 'Kurale', serif;
+$serif-24: 'Spectral', serif;
+$serif-25: 'Podkova', serif;
+$serif-26: 'Ledger', serif;
+$serif-27: 'Cormorant Infant', serif;
+$serif-28: 'Spectral SC', serif;
+$serif-29: 'Cormorant Unicase', serif;
+$serif-30: 'Vollkorn SC', serif;
+$serif-31: 'Literata', serif;
+
+//SanSerif Fonts*/
+
+//узкие*/
+$sans-1: 'Open Sans Condensed', sans-serif;
+$sans-2: 'Oswald', sans-serif;
+$sans-3: 'PT Sans Narrow', sans-serif;
+$sans-4: 'Yanone Kaffeesatz', sans-serif;
+$sans-51: 'Alumni Sans', sans-serif;
+//средние*/
+$sans-5: 'Roboto Condensed', sans-serif;
+$sans-6: 'PT Sans', sans-serif;
+$sans-7: 'Source Sans Pro', sans-serif;
+$sans-8: 'Fira Sans', sans-serif;
+$sans-9: 'Exo 2', sans-serif;
+$sans-10: 'Ubuntu Condensed', sans-serif;
+$sans-11: 'Cuprum', sans-serif;
+$sans-12: 'Fira Sans Condensed', sans-serif;
+$sans-13: 'Alegreya Sans', sans-serif;
+$sans-14: 'Alegreya Sans SC', sans-serif;
+$sans-15: 'IBM Plex Sans', sans-serif;
+$sans-16: 'Arsenal', sans-serif;
+$sans-17: 'Istok Web', sans-serif;
+$sans-18: 'Scada', sans-serif;
+$sans-19: 'Seymour One', sans-serif;
+//широкие*/
+$sans-20: 'Roboto', sans-serif;
+$sans-21: 'Open Sans', sans-serif;
+$sans-22: 'Montserrat', sans-serif; // 100, 200, 300, 300, 600, 800*/
+$sans-23: 'Arimo', sans-serif;
+$sans-24: 'Ubuntu', sans-serif;
+$sans-25: 'Noto Sans', sans-serif;
+$sans-26: 'Rubik', sans-serif; // 30, 400, 500, 600, 700, 800, 900 */
+$sans-27: 'PT Sans Caption', sans-serif;
+$sans-28: 'Fira Sans Extra Condensed', sans-serif;
+$sans-29: 'Raleway', sans-serif;
+$sans-30: 'Nunito', sans-serif;
+$sans-31: 'Source Code Pro', sans-serif;
+$sans-32: 'Ruda', sans-serif;
+$sans-33: 'Comfortaa', sans-serif;
+$sans-34: 'Cousine', sans-serif;
+
+//bold*/
+$sans-35: 'Rubik Mono One', sans-serif;
+
+//экзоты*/
+$sans-36: 'Prosto One', sans-serif;
+$sans-37: 'Montserrat Alternates', sans-serif;
+$sans-38: 'Tenor Sans', sans-serif;
+$sans-39: 'YesevaOne', sans-serif;
+$sans-40: 'Anonymous Pro', sans-serif;
+$sans-41: 'Ruslan Display One', sans-serif;
+$sans-42: 'Russo One', sans-serif;
+$sans-43: 'Play', sans-serif;
+$sans-44: 'Philosopher', sans-serif;
+$sans-45: 'PT Mono', sans-serif;
+$sans-46: 'Jura', sans-serif;
+$sans-47: 'Didact Gothic', sans-serif;
+$sans-48: 'Tenor Sans', sans-serif;
+$sans-49: 'El Messiri', sans-serif;
+$sans-50: 'Marmelad', sans-serif;
+$sans-51: 'Jost', sans-serif;
+
+//Display*/
+$display-1: 'Kelly Slab', cursive;
+$display-2: 'Yeseva One', cursive;
+$display-3: 'Underdog', cursive;
+$display-4: 'Press Start 2P', cursive;
+$display-5: 'Ruslan Display', cursive;
+$display-6: 'Forum', cursive;
+$display-7: 'Prosto One', cursive;
+$display-8: 'Lobster', cursive;
+$display-9: 'Comfortaa', cursive;
+$display-10: 'Poiret One', cursive;
+$display-11: 'Stalinist One', cursive;
+
+//HandWriting*/
+$handwrite-1: 'Pacifico', cursive;
+$handwrite-2: 'Amatic SC', cursive;
+$handwrite-3: 'Caveat', cursive;
+$handwrite-4: 'Marck Script', cursive;
+$handwrite-5: 'Pangolin', cursive;
+$handwrite-6: 'Bad Script', cursive;
+$handwrite-7: 'Neucha', cursive;
+$handwrite-8: 'Pattaya', cursive;
+$handwrite-9: 'Andika', cursive;
+
+//Monospace*/
+$monospace-1: 'Ubuntu Mono', monospace;
+$monospace-2: 'PT Mono', monospace;
+$monospace-3: 'IBM Plex Mono', monospace;
+$monospace-4: 'Roboto Mono', monospace;
+$monospace-5: 'Cousine', monospace;
+$monospace-6: 'Anonymous Pro', monospace;
+$monospace-7: 'Fira Mono', monospace;
+
+
+$helvetica-1: 'Helvetica Neue', sans-serif;
+$helvetica-2: 'Helvetica 25 UltraLight', sans-serif;
+$helvetica-3: 'Helvetica 35 Thin', sans-serif;
+$helvetica-4: 'Helvetica 45 Light', sans-serif;
+$helvetica-5: 'Helvetica 55 Roman', sans-serif;
+$helvetica-6: 'Helvetica 65 Medium', sans-serif;

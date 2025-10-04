@@ -1,0 +1,6 @@
+http://panel.test.local/magazin/article
+http://panel.test.local/magazin/article/index
+http://panel.test.local/magazin/article/view?id=2
+http://panel.test.local/magazin/article/update?id=2
+http://panel.test.local/magazin/article/create
+http://panel.test.local/magazin/article/resort?id=2

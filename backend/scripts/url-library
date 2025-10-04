@@ -1,0 +1,16 @@
+http://panel.test.local/library/book/index
+http://panel.test.local/library/book/view?id=3
+http://panel.test.local/library/book/update?id=3
+http://panel.test.local/library/book/create
+http://panel.test.local/library/book/resort?id=777
+http://panel.test.local/library/chapter/index
+http://panel.test.local/library/chapter/view?id=4
+http://panel.test.local/library/chapter/update?id=4
+http://panel.test.local/library/chapter/create
+http://panel.test.local/library/chapter/create?id=3
+http://panel.test.local/library/chapter/resort?id=2
+http://panel.test.local/library/author/index
+http://panel.test.local/library/author/view?id=3
+http://panel.test.local/library/author/update?id=3
+http://panel.test.local/library/author/create
+http://panel.test.local/library/author/resort?id=777

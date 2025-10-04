@@ -1,0 +1,12 @@
+http://panel.test.local/login/
+http://panel.test.local/signup/
+http://panel.test.local/addon/banner/index
+http://panel.test.local/addon/banner/view?id=4
+http://panel.test.local/addon/banner/update?id=4
+http://panel.test.local/addon/banner/create?textType=2&parentId=10
+http://panel.test.local/addon/banner/resort?id=777
+http://panel.test.local/seo/anons/index
+http://panel.test.local/seo/anons/view?id=5
+http://panel.test.local/seo/anons/update?id=5
+http://panel.test.local/seo/anons/create
+http://panel.test.local/seo/anons/resort?id=777

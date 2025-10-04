@@ -1,0 +1,14 @@
+/*
+!.gitignore
+!/css/
+/css/*
+!/css/**
+!/img/
+/img/*
+!/img/**
+!/js/
+/js/*
+!/js/**
+!/webfonts/
+/webfonts/*
+!/webfonts/**

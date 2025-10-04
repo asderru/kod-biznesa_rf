@@ -1,0 +1,109 @@
+/*------------------------------------*\
+    1. GENERAL STYLES
+\*------------------------------------*/
+html, body {
+  height: 100%;
+}
+
+body {
+  color: $font-color;
+  font-family: $font-01;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+p:last-child { /* RESET MARGIN OF LAST P TAG */
+  margin-bottom: 0;
+}
+
+ul:last-child {
+  margin-bottom: 0;
+}
+
+img,
+.nav > li > a > img { /* RESPONSIVE IMAGES */
+  max-width: 100%;
+  height: auto;
+}
+
+::-moz-selection {
+  color: #fff;
+  background-color: $firm-bgc;
+}
+
+::selection {
+  color: #fff;
+  background-color: $firm-bgc;
+}
+
+.del {
+  text-decoration: line-through;
+}
+
+.table:last-child {
+  margin-bottom: 0;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: $link-hover-color;
+}
+
+/* 1.1. HEADINGS */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $mine-shaft;
+  font-family: $font-02;
+}
+
+h1, h2, h3, .h1, .h2, .h3 {
+  font-weight: 700;
+}
+
+h4, h5, h6, .h4, .h5, .h6 {
+  font-weight: 600;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h5, .h5 {
+  font-size: 1.1em;
+}
+
+h6, .h6 {
+  font-size: 1em;
+}
+
+h1, .h1 {
+  line-height: 46px;
+}
+
+h2, .h2 {
+  line-height: 40px;
+}
+
+h3, .h3 {
+  line-height: 34px;
+}
+
+h4, .h4 {
+  line-height: 28px;
+}
+
+h5, .h5 {
+  line-height: 26px;
+}
+
+h6, .h6 {
+  line-height: 24px;
+}

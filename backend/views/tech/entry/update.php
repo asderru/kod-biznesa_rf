@@ -1,0 +1,42 @@
+<?php
+    
+    use core\edit\entities\Tech\Entry;
+    use yii\bootstrap5\Html;
+    
+    /** @var yii\web\View $this */
+    /** @var Entry $model */
+    /* @var $actionId string */
+    /* @var $label string */
+    /* @var $prefix string */
+    /* @var $textType int */
+    
+    const LAYOUT_ID = '#tech_entry_update';
+    
+    $this->title                   = 'Update Entry: ' . $model->id;
+    $this->params['breadcrumbs'][] = ['label' => 'Entries', 'url' => ['index']];
+    $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+    $this->params['breadcrumbs'][] = 'Update';
+    
+    echo $this->render(
+        '/layouts/tops/_infoHeader',
+        [
+            'label'    => $label,
+            'textType' => $textType,
+            'prefix'   => $prefix,
+            'actionId' => $actionId,
+            'layoutId' => LAYOUT_ID,
+        ],
+    )
+?>
+
+<div class="entry-update">
+
+    <h1><?= Html::encode($this->title)
+        ?></h1>
+    
+    <?= $this->render('_form', [
+        'model' => $model,
+    ])
+    ?>
+
+</div>

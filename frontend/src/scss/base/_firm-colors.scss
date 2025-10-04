@@ -1,0 +1,149 @@
+//Color Variables//
+
+$firm-base: rgba(128, 0, 0, 1); // Maroon #800000 //
+$firm-base-50: rgba(231, 3, 3, .5);
+$firm-base-10: rgba(231, 3, 3, .1);
+$firm-base2: rgb(70, 75, 85);
+$firm-base-hover: rgba(167, 13, 42, 1); // Carbon Red #a70d2a */
+$firm-contrast: rgba(240, 240, 240, 1);
+$firm-contrast2: rgb(255, 255, 255);
+$firm-blue: rgba(23, 62, 184, 1); //eastern-blue//
+$firm-blue-light: rgb(84, 195, 255); //light-blue//
+$firm-azure: rgb(15, 127, 255); //azure_radiance: #0078ff;//
+$firm-turquoise: rgb(50, 215, 200); //turquoise: #40E0D0;//
+$firm-black: rgba(6, 7, 9, 1);
+
+$firm-secondary: rgba(128, 0, 0, 1); // Maroon #800000 */
+$firm-success: rgba(34, 139, 34, 1); // ForestGreen #228b22 */
+$firm-info: rgba(64, 224, 208, 1); // Turquoise #40e0d0 */
+$firm-warning: rgba(255, 223, 0, 1); // Golden Yellow #ffdf00 */
+$firm-danger: rgba(193, 34, 103, 1); // Burnt Pink #c12267 */
+$firm-light: rgba(211, 211, 211, 1); // LightGrey or LightGrey #d3d3d3 */
+$firm-dark: rgba(29, 29, 35, 1);
+
+$firm-red: rgba(255, 20, 10, 1); // #FF140AFF
+$firm-cardinal: rgba(173, 21, 22, 1); //cardinal: #cc2127;//
+$firm-pink: rgba(211, 65, 178, 1); //fuchsia-pink: #d341b2//
+$firm-yellow: rgba(255, 255, 0, 1);
+$firm-fuchsia: rgba(255, 0, 255, 1); //fuchsia: #FF00FF;//
+$firm-violet: rgba(238, 130, 238, 1); //violet: #EE82EE;//
+$firm-electric-violet: rgba(141, 0, 255, 1); //electric-violet: #8d00ff;//
+$firm-purple: rgba(102, 51, 153, 1); //royal-purple//
+$firm-orange: rgba(255, 135, 0, 1); //flush-orange: #ff8700//
+
+$firm-green: rgba(4, 185, 44, 1); //apple//
+$firm-brown: rgba(127, 0, 26, 1); //brown://
+
+$firm-shark: rgba(33, 38, 49, 1); //shark//
+
+$firm-grey-light: rgba(230, 230, 240, .9);
+$firm-grey: rgba(150, 160, 170, 1);
+$firm-grey-dark: rgb(70, 75, 85);
+
+$font-color: rgb(45, 50, 50);
+$font-color-light: $gainsboro;
+
+$form-border-color: $firm-grey;
+$firm-link: $firm-cardinal; //rgba(229, 228, 226, 1)
+$firm-link-hover: $red; //rgba(174, 2, 2, 1); // Red #E90303FF //
+$firm-link-active: $firm-cardinal; //rgba(229, 228, 226, 1); Platinum #e5e4e2 //
+
+$firm-bgc: $chocolate; // rgba(210, 105, 30, 1); // Chocolate #d2691e //
+$firm-bgc-light: $light-white; //
+$firm-bgc-dark: $night; // rgba(12, 9, 10, 1); // Night #0c090a //
+
+$firm-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+$firm-shadow2: 0 4px 16px rgba(0, 0, 0, .2);
+$firm-text-shadow: 0 2px 4px rgba(0, 0, 0, .4);
+
+//*  ------------------------------------------  **/
+
+.blue {
+  color: #3498DB;
+}
+
+.purple {
+  color: #9B59B6;
+}
+
+.green {
+  color: $firm-base;
+}
+
+.aero {
+  color: #9CC2CB;
+}
+
+.red {
+  color: #E74C3C;
+}
+
+.dark {
+  color: $mine-shaft;
+}
+
+.border-blue {
+  border-color: #3498DB !important;
+}
+
+.border-purple {
+  border-color: #9B59B6 !important;
+}
+
+.border-green {
+  border-color: $firm-base !important;
+}
+
+.border-aero {
+  border-color: #9CC2CB !important;
+}
+
+.border-red {
+  border-color: #E74C3C !important;
+}
+
+.border-dark {
+  border-color: $mine-shaft !important;
+}
+
+.bg-white {
+  background: $white !important;
+  border: 1px solid $white !important;
+  color: #73879C;
+}
+
+.bg-green {
+  background: $firm-base !important;
+  border: 1px solid $firm-base !important;
+  color: $white;
+}
+
+.bg-red {
+  background: #E74C3C !important;
+  border: 1px solid #E74C3C !important;
+  color: $white;
+}
+
+.bg-blue {
+  background: #3498DB !important;
+  border: 1px solid #3498DB !important;
+  color: $white;
+}
+
+.bg-orange {
+  background: #F39C12 !important;
+  border: 1px solid #F39C12 !important;
+  color: $white;
+}
+
+.bg-purple {
+  background: #9B59B6 !important;
+  border: 1px solid #9B59B6 !important;
+  color: $white;
+}
+
+.bg-blue-sky {
+  background: #50C1CF !important;
+  border: 1px solid #50C1CF !important;
+  color: $white;
+}

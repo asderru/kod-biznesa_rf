@@ -1,0 +1,64 @@
+/*
+    xs < 576px
+	sm ≥ 576px
+	md ≥ 768px
+	lg ≥ 992px
+	xl ≥ 1200px
+	xxl ≥ 1400px
+
+[TABLE OF CONTENTS]
+
+1. MEDIA QUERIES
+   1. LARGE DEVICES, WIDE SCREENS
+   2. MEDIUM DEVICES, DESKTOPS
+   3. SMALL DEVICES, TABLETS
+   4. SMALL DEVICES, SMARTPHONES
+   5. CUSTOM, IPHONE RETINA
+
+*/
+
+/* 1. LARGE DEVICES, WIDE SCREENS */
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+;
+}
+
+/* 2. MEDIUM DEVICES, DESKTOPS */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  body {
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+}
+
+/* 3. SMALL DEVICES, TABLETS */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+}
+
+/* 4. SMALL DEVICES, SMARTPHONES */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  body {
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+}
+
+/* 1.2. SMALL DEVICES, SMARTPHONES */
+@media screen and (max-width: 575px) {
+  body {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+}

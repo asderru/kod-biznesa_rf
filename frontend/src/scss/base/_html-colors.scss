@@ -1,0 +1,749 @@
+$white-5: rgba(255, 255, 255, .05);
+$white-10: rgba(255, 255, 255, .1);
+$white-20: rgba(255, 255, 255, .2);
+$white-30: rgba(255, 255, 255, .3);
+$white-40: rgba(255, 255, 255, .4);
+$white-50: rgba(255, 255, 255, .5);
+$white-60: rgba(255, 255, 255, .6);
+$white-70: rgba(255, 255, 255, .7);
+$white-80: rgba(255, 255, 255, .8);
+$white-90: rgba(255, 255, 255, .9);
+$black-5: rgba(0, 0, 0, .05);
+$black-10: rgba(0, 0, 0, .1);
+$black-20: rgba(0, 0, 0, .2);
+$black-30: rgba(0, 0, 0, .3);
+$black-40: rgba(1, 3, 7, .4);
+$black-50: rgba(1, 3, 7, .5);
+$black-60: rgba(1, 3, 7, .6);
+$black-70: rgba(1, 3, 7, .7);
+$black-80: rgba(1, 3, 7, .8);
+$black-90: rgba(1, 3, 7, .9);
+$black-95: rgba(1, 3, 7, .95);
+
+//Main Color Variables//
+
+$white: rgba(255, 255, 255, 1); // White #ffffff //
+$silver: rgba(192, 192, 192, 1); // Silver #c0c0c0 //
+$grey: rgba(128, 128, 128, 1); // Gray or Grey #808080 //
+$black: rgba(0, 0, 0, 1); // Black #000000 //
+$light-blue: rgba(173, 216, 230, 1); // LightBlue #add8e6 //
+$cyan: rgba(0, 255, 255, 1); // Cyan #00ffff //
+$aquamarine: rgba(127, 255, 212, 1); // Aquamarine #7fffd4 //
+$aqua: rgba(0, 255, 255, 1); //Aqua #00FFFF
+$blue: rgba(0, 0, 255, 1); // Blue #0000ff //
+$dark-blue: rgba(0, 0, 139, 1); // DarkBlue #00008b //
+$navy: rgba(0, 0, 128, 1); //Navy #000080
+$pink: rgba(255, 192, 203, 1); // Pink #ffc0cb //
+$magenta: rgba(255, 0, 255, 1); // Magenta #ff00ff //
+$red: rgba(174, 2, 2, 1); // Red #E90303FF //
+$purple: rgba(128, 0, 128, 1); // Purple #800080 //
+$brown: rgba(165, 42, 42, 1); // Brown #a52a2a //
+$maroon: rgba(128, 0, 0, 1); // Maroon #800000 //
+$yellow: rgba(255, 255, 0, 1); // Yellow #ffff00 //
+$orange: rgba(255, 165, 0, 1); // Orange #ffa500 //
+$olive: rgba(128, 128, 0, 1); // Olive #808000 //
+$lime: rgba(0, 255, 0, 1); // Lime #00ff00 //
+$green: rgba(0, 128, 0, 1); // Green #008000 //
+$teal: rgba(0, 128, 128, 1); // Teal #008080 //
+
+
+//Red Variables//
+$red-ribbon: rgba(232, 0, 62, 1);
+$indian-red: rgba(205, 92, 92, 1); // Indian Red #CD5C5C
+$light-coral: rgba(240, 128, 128, 1); //#F08080
+$salmon: rgba(250, 128, 114, 1); //#FA8072
+$dark-salmon: rgba(233, 150, 122, 1); //#E9967A
+$light-salmon: rgba(255, 160, 122, 1); // Light Salmon #ffa07a //
+$crimson: rgba(220, 20, 60, 1); //#DC143C
+$fire-brick: rgba(178, 34, 34, 1); //#B22222
+$dark-red: rgba(139, 0, 0, 1); // DarkRed #8b0000 //
+
+//Розовые тона://
+$light-pink: rgba(255, 182, 193, 1); // Light Pink #ffb6c1 //
+$hot-pink: rgba(255, 105, 180, 1); //Hot Pink #FF69B4
+$deep-pink: rgba(255, 20, 147, 1); // DeepPink #ff1493 //
+$medium-violet-red: rgba(199, 21, 133, 1); // MediumVioletRed #c71585 //
+$pale-violet-red: rgba(219, 112, 147, 1); // PaleVioletRed #db7093 //
+
+//Оранжевые тона://
+$coral: rgba(255, 127, 80, 1); // Coral #ff7f50 //
+$tomato: rgba(255, 99, 71, 1); // Tomato #ff6347 //
+$orange-red: rgba(255, 69, 0, 1); // OrangeRed #ff4500 //
+$dark-orange: rgba(255, 140, 0, 1); // DarkOrange #ff8c00 //
+
+//Жёлтые тона://
+$gold: rgba(255, 215, 0, 1); // Gold #ffd700 //
+$light-yellow: rgba(255, 255, 224, 1); // LightYellow #ffffe0 //
+$lemon-chiffon: rgba(255, 250, 205, 1); // LemonChiffon #fffacd //
+$light-golden-rod-yellow: rgba(250, 250, 210, 1); // LightGoldenRodYellow #fafad2 //
+$papaya-whip: rgba(255, 239, 213, 1); // PapayaWhip #ffefd5 //
+$moccasin: rgba(255, 228, 181, 1); // Moccasin #ffe4b5 //
+$peach-puff: rgba(255, 218, 185, 1); // PeachPuff #ffdab9 //
+$pale-golden-rod: rgba(238, 232, 170, 1); // PaleGoldenRod #eee8aa //
+$khaki: rgba(240, 230, 140, 1); // Khaki #f0e68c //
+$dark-khaki: rgba(189, 183, 107, 1); // DarkKhaki #bdb76b //
+
+//Фиолетовые тона://
+$lavender: rgba(230, 230, 250, 1); // Lavender #e6e6fa //
+$thistle: rgba(216, 191, 216, 1); // Thistle #d8bfd8 //
+$plum: rgba(221, 160, 221, 1); //#DDA0DD
+$violet: rgba(238, 130, 238, 1); //#EE82EE
+$orchid: rgba(218, 112, 214, 1); //#DA70D6
+$fuchsia: rgba(255, 0, 255, 1); //#FF00FF
+$medium-orchid: rgba(186, 85, 211, 1); //#BA55D3
+$medium-purple: rgba(147, 112, 219, 1); //#9370DB
+$blue-violet: rgba(138, 43, 226, 1); //#8A2BE2
+$dark-violet: rgba(148, 0, 211, 1); //#9400D3
+$dark-orchid: rgba(153, 50, 204, 1); //#9932CC
+$dark-magenta: rgba(139, 0, 139, 1); //#8B008B
+$indigo: rgba(75, 0, 130, 1); //#4B0082
+$slate-blue: rgba(106, 90, 205, 1); //#6A5ACD
+$dark-slate-blue: rgba(72, 61, 139, 1); //#483D8B
+
+//Коричневые тона://
+$corn-silk: rgba(255, 248, 220, 1); //#FFF8DC
+$blanched-almond: rgba(255, 235, 205, 1); //#FFEBCD
+$bisque: rgba(255, 228, 196, 1); //#FFE4C4
+$navajo-white: rgba(255, 222, 173, 1); // NavajoWhite #ffdead //
+$wheat: rgba(245, 222, 179, 1); //#F5DEB3
+$burly-wood: rgba(222, 184, 135, 1); //#DEB887
+$tan: rgba(210, 180, 140, 1); //#D2B48C
+$rosy-brown: rgba(188, 143, 143, 1); //#BC8F8F
+$sandy-brown: rgba(244, 164, 96, 1); //#F4A460
+$golden-rod: rgba(218, 165, 32, 1); // GoldenRod #daa520 //
+$dark-golden-rod: rgba(184, 134, 11, 1); //#B8860B
+$peru: rgba(205, 133, 63, 1); //CD853F#
+$chocolate: rgba(210, 105, 30, 1); //#D2691E
+$saddle-brown: rgba(139, 69, 19, 1); //#8B4513
+$sienna: rgba(160, 82, 45, 1); //#A0522D
+
+$green-yellow: rgba(173, 255, 47, 1); //#ADFF2F
+$chartreuse: rgba(127, 255, 0, 1); //#7FFF00
+$lawn-green: rgba(124, 252, 0, 1); //#7CFC00
+$lime-green: rgba(50, 205, 50, 1); //#32CD32
+$pale-green: rgba(152, 251, 152, 1); //#98FB98
+$light-green: rgba(144, 238, 144, 1); //#90EE90
+$medium-spring-green: rgba(0, 250, 154, 1); //#00FA9A
+$spring-green: rgba(0, 255, 127, 1); //#00FF7F
+$medium-sea-green: rgba(60, 179, 113, 1); //#3CB371
+$sea-green: rgba(46, 139, 87, 1); //#2E8B57
+$forest-green: rgba(34, 139, 34, 1); //#228B22
+$dark-green: rgba(0, 100, 0, 1); //#006400
+$yellow-green: rgba(154, 205, 50, 1); //#9ACD32
+$olive-drab: rgba(107, 142, 35, 1); //#6B8E23
+$dark-olive-green: rgba(85, 107, 47, 1); //#556B2F
+$medium-aquamarine: rgba(102, 205, 170, 1); //#66CDAA
+$dark-sea-green: rgba(143, 188, 143, 1); //#8FBC8F
+$light-sea-green: rgba(32, 178, 170, 1); //#20B2AA
+$dark-cyan: rgba(0, 139, 139, 1); //#008B8B
+
+//Синие тона://
+$light-cyan: rgba(224, 255, 255, 1); //Light Cian #E0FFFF
+$pale-turquoise: rgba(175, 238, 238, 1); //#AFEEEE
+$turquoise: rgba(64, 224, 208, 1); //#40E0D0
+$medium-turquoise: rgba(72, 209, 204, 1); //#48D1CC
+$dark-turquoise: rgba(0, 206, 209, 1); //#00CED1
+$steel-blue: rgba(70, 130, 180, 1); //#4682B4
+$light-steel-blue: rgba(176, 196, 222, 1); //#B0C4DE
+$powder-blue: rgba(176, 224, 230, 1); //#B0E0E6
+$sky-blue: rgba(135, 206, 235, 1); //#87CEEB
+$light-sky-blue: rgba(135, 206, 250, 1); //#87CEFA
+$deep-sky-blue: rgba(0, 191, 255, 1); //#00BFFF
+$dodger-blue: rgba(30, 144, 255, 1); //#1E90FF
+$cornflower-blue: rgba(100, 149, 237, 1); //#6495ED
+$medium-slate-blue: rgba(123, 104, 238, 1); //#7B68EE
+$royal-blue: rgba(65, 105, 225, 1); //#4169E1
+$medium-blue: rgba(0, 0, 205, 1); //#0000CD
+$midnight-blue: rgba(25, 25, 112, 1); //#191970
+
+//Белые тона://
+$snow: rgba(255, 250, 250, 1); // Snow #fffafa //
+$honey-dew: rgba(240, 255, 240, 1); //#F0FFF0
+$mint-cream: rgba(245, 255, 250, 1); //#F5FFFA
+$azure: rgba(240, 255, 255, 1); //#F0FFFF
+$alice-blue: rgba(240, 248, 255, 1); //#F0F8FF
+$ghost-white: rgba(248, 248, 255, 1); //#F8F8FF
+$white-smoke: rgba(245, 245, 245, 1); //#F5F5F5
+$sea-shell: rgba(255, 245, 238, 1); // SeaShell #fff5ee //
+$beige: rgba(245, 245, 220, 1); //#F5F5DC
+$old-lace: rgba(253, 245, 230, 1); // OldLace #fdf5e6 //
+$floral-white: rgba(255, 250, 240, 1); //#FFFAF0
+$ivory: rgba(255, 255, 240, 1); //#FFFFF0
+$antique-white: rgba(250, 235, 215, 1); //#FAEBD7
+$linen: rgba(250, 240, 230, 1); //#FAF0E6
+$lavender-blush: rgba(255, 240, 245, 1); //#FFF0F5
+$misty-rose: rgba(255, 228, 225, 1); //#FFE4E1
+
+//Серые тона://
+$alabaster: rgba(249, 249, 249, 1);
+$athens-grey: rgba(236, 238, 242, 1); // Athens Grey//
+$gainsboro: rgba(220, 220, 220, 1); //#DCDCDC
+$light-grey: rgba(211, 211, 211, 1); //#D3D3D3
+$dark-grey: rgba(169, 169, 169, 1); //#A9A9A9
+$cadet-blue: rgba(167, 179, 198, 1); // Cadet Blue //
+$mountain-mist: rgba(151, 152, 155, 1);
+$light-slate-grey: rgba(119, 136, 153, 1); //#778899
+$slate-grey: rgba(112, 128, 144, 1); //#708090
+$dim-grey: rgba(105, 105, 105, 1); //#696969
+$mine-shaft: rgba(52, 51, 49, 1);
+$dark-slate-grey: rgba(47, 79, 79, 1); //#2F4F4F
+
+//Серые полу-тона://
+$gravel-10: rgba(76, 76, 76, .1);
+$gravel-40: rgba(76, 76, 76, .40);
+$gallery-50: rgba(239, 237, 239, .5);
+$gallery-80: rgba(239, 237, 239, .8);
+$mine-shaft-20: rgba(52, 51, 49, .2);
+$mine-shaft-30: rgba(52, 51, 49, .3);
+$firm-shark-30: rgba(33, 38, 49, .3);
+$firm-shark-50: rgba(33, 38, 49, .5);
+
+$night: rgba(12, 9, 10, 1); // Night #0c090a //
+$steel-grey: rgba(29, 29, 58, 1); // steelgrey ; //
+$charcoal: rgba(52, 40, 44, 1); // Charcoal #34282c //
+$mine-shaft: rgba(52, 51, 49, 1); // mineshaft #2F4F4F//
+$oil: rgba(59, 49, 49, 1); // Oil #3b3131 //
+$light-black: rgba(69, 69, 69, 1); // Light Black #454545 //
+$black-cat: rgba(65, 56, 57, 1); // Black Cat #413839 //
+$iridium: rgba(61, 60, 58, 1); // Iridium #3d3c3a //
+$black-eel: rgba(70, 62, 63, 1); // Black Eel #463e3f //
+$black-cow: rgba(76, 70, 70, 1); // Black Cow #4c4646 //
+$grey-wolf: rgba(80, 74, 75, 1); // Grey Wolf #504a4b //
+$vampire-grey: rgba(86, 80, 81, 1); // Vampire Grey #565051 //
+$iron-grey: rgba(82, 89, 93, 1); // Iron Grey #52595d //
+$grey-dolphin: rgba(92, 88, 88, 1); // Grey Dolphin #5c5858 //
+$carbon-grey: rgba(98, 93, 93, 1); // Carbon Grey #625d5d //
+$ash-grey: rgba(102, 99, 98, 1); // Ash Grey #666362 //
+$cloudy-grey: rgba(109, 105, 104, 1); // Cloudy Grey #6d6968 //
+$dim-grey: rgba(105, 105, 105, 1); // DimGrey or DimGrey #696969 //
+$smokey-grey: rgba(114, 110, 109, 1); // Smokey Grey #726e6d //
+$alien-grey: rgba(115, 111, 110, 1); // Alien Grey #736f6e //
+$sonic-silver: rgba(117, 117, 117, 1); // Sonic Silver #757575 //
+$platinum-grey: rgba(121, 121, 121, 1); // Platinum Grey #797979 //
+$granite: rgba(131, 126, 124, 1); // Granite #837e7c //
+$battleship-grey: rgba(132, 132, 130, 1); // Battleship Grey #848482 //
+$mountain-mist: rgba(151, 152, 155, 1); // Mountain Mist//
+$grey-cloud: rgba(182, 182, 180, 1); // Grey Cloud #b6b6b4 //
+$pale-silver: rgba(201, 192, 187, 1); // Pale Silver #c9c0bb //
+$grey-goose: rgba(209, 208, 206, 1); // Grey Goose #d1d0ce //
+$platinum-silver: rgba(206, 206, 206, 1); // Platinum Silver #cecece //
+$gainsboro: rgba(220, 220, 220, 1); // Gainsboro #dcdcdc //
+$mystic: rgba(228, 230, 232, 1); // Mystic//
+$platinum: rgba(229, 228, 226, 1); // Platinum #e5e4e2 //
+$alabaster: rgba(249, 249, 249, 1); // Alabaster//
+$metallic-silver: rgba(188, 198, 204, 1); // Metallic Silver #bcc6cc //
+$blue-grey: rgba(152, 175, 199, 1); // Blue Grey #98afc7 //
+$roman-silver: rgba(131, 137, 150, 1); // Roman Silver #838996 //
+$light-slate-grey: rgba(119, 136, 153, 1); // LightSlateGrey or LightSlateGrey #778899 //
+$slate-grey: rgba(112, 128, 144, 1); // SlateGrey or SlateGrey #708090 //
+$rat-grey: rgba(109, 123, 141, 1); // Rat Grey #6d7b8d //
+$slate-granite-grey: rgba(101, 115, 131, 1); // Slate Granite Grey #657383 //
+$jet-grey: rgba(97, 109, 126, 1); // Jet Grey #616d7e //
+$mist-blue: rgba(100, 109, 126, 1); // Mist Blue #646d7e //
+$marble-blue: rgba(86, 109, 126, 1); // Marble Blue #566d7e //
+$slate-blue-grey: rgba(115, 124, 161, 1); // Slate Blue Grey #737ca1 //
+$light-purple-blue: rgba(114, 143, 206, 1); // Light Purple Blue #728fce //
+$azure-blue: rgba(72, 99, 160, 1); // Azure Blue #4863a0 //
+$blue-jay: rgba(43, 84, 126, 1); // Blue Jay #2b547e //
+$charcoal-blue: rgba(54, 69, 79, 1); // Charcoal Blue #36454f //
+$dark-blue-grey: rgba(41, 70, 91, 1); // Dark Blue Grey #29465b //
+$dark-slate: rgba(43, 56, 86, 1); // Dark Slate #2b3856 //
+$deep-sea-blue: rgba(18, 52, 86, 1); // Deep Sea Blue #123456 //
+$night-blue: rgba(21, 27, 84, 1); // Night Blue #151b54 //
+$midnight-blue: rgba(25, 25, 112, 1); // MidnightBlue #191970 //
+$denim-dark-blue: rgba(21, 27, 141, 1); // Denim Dark Blue #151b8d //
+$lapis-blue: rgba(21, 49, 126, 1); // Lapis Blue #15317e //
+$new-midnight-blue: rgba(0, 0, 160, 1); // New Midnight Blue #0000a0 //
+$earth-blue: rgba(0, 0, 165, 1); // Earth Blue #0000a5 //
+$cobalt-blue: rgba(0, 32, 194, 1); // Cobalt Blue #0020c2 //
+$medium-blue: rgba(0, 0, 205, 1); // MediumBlue #0000cd //
+$blueberry-blue: rgba(0, 65, 194, 1); // Blueberry Blue #0041c2 //
+$canary-blue: rgba(41, 22, 245, 1); // Canary Blue #2916f5 //
+$bright-blue: rgba(9, 9, 255, 1); // Bright Blue #0909ff //
+$blue-orchid: rgba(31, 69, 252, 1); // Blue Orchid #1f45fc //
+$sapphire-blue: rgba(37, 84, 199, 1); // Sapphire Blue #2554c7 //
+$blue-eyes: rgba(21, 105, 199, 1); // Blue Eyes #1569c7 //
+$bright-navy-blue: rgba(25, 116, 210, 1); // Bright Navy Blue #1974d2 //
+$balloon-blue: rgba(43, 96, 222, 1); // Balloon Blue #2b60de //
+$royal-blue: rgba(65, 105, 225, 1); // RoyalBlue #4169e1 //
+$ocean-blue: rgba(43, 101, 236, 1); // Ocean Blue #2b65ec //
+$blue-ribbon: rgba(48, 110, 255, 1); // Blue Ribbon #306eff //
+$blue-dress: rgba(21, 125, 236, 1); // Blue Dress #157dec //
+$neon-blue: rgba(21, 137, 255, 1); // Neon Blue #1589ff //
+$glacial-blue-ice: rgba(54, 139, 193, 1); // Glacial Blue Ice #368bc1 //
+$steel-blue: rgba(70, 130, 180, 1); // SteelBlue #4682b4 //
+$silk-blue: rgba(72, 138, 199, 1); // Silk Blue #488ac7 //
+$windows-blue: rgba(53, 126, 199, 1); // Windows Blue #357ec7 //
+$blue-ivy: rgba(48, 144, 199, 1); // Blue Ivy #3090c7 //
+$blue-koi: rgba(101, 158, 199, 1); // Blue Koi #659ec7 //
+$columbia-blue: rgba(135, 175, 199, 1); // Columbia Blue #87afc7 //
+$baby-blue: rgba(149, 185, 199, 1); // Baby Blue #95b9c7 //
+$cornflower-blue: rgba(100, 149, 237, 1); // CornflowerBlue #6495ed //
+$sky-blue-dress: rgba(102, 152, 255, 1); // Sky Blue Dress #6698ff //
+$iceberg: rgba(86, 165, 236, 1); // Iceberg #56a5ec //
+$butterfly-blue: rgba(56, 172, 236, 1); // Butterfly Blue #38acec //
+$deep-sky-blue: rgba(0, 191, 255, 1); // DeepSkyBlue #00bfff //
+$midday-blue: rgba(59, 185, 255, 1); // Midday Blue #3bb9ff //
+$crystal-blue: rgba(92, 179, 255, 1); // Crystal Blue #5cb3ff //
+$denim-blue: rgba(121, 186, 236, 1); // Denim Blue #79baec //
+$day-sky-blue: rgba(130, 202, 255, 1); // Day Sky Blue #82caff //
+$light-sky-blue: rgba(135, 206, 250, 1); // LightSkyBlue #87cefa //
+$sky-blue: rgba(135, 206, 235, 1); // SkyBlue #87ceeb //
+$jeans-blue: rgba(160, 207, 236, 1); // Jeans Blue #a0cfec //
+$blue-angel: rgba(183, 206, 236, 1); // Blue Angel #b7ceec //
+$pastel-blue: rgba(180, 207, 236, 1); // Pastel Blue #b4cfec //
+$light-day-blue: rgba(173, 223, 255, 1); // Light Day Blue #addfff //
+$sea-blue: rgba(194, 223, 255, 1); // Sea Blue #c2dfff //
+$heavenly-blue: rgba(198, 222, 255, 1); // Heavenly Blue #c6deff //
+$robin-egg-blue: rgba(189, 237, 255, 1); // Robin Egg Blue #bdedff //
+$powder-blue: rgba(176, 224, 230, 1); // PowderBlue #b0e0e6 //
+$coral-blue: rgba(175, 220, 236, 1); // Coral Blue #afdcec //
+$light-steel-blue: rgba(176, 207, 222, 1); // LightSteelBlue #b0cfde //
+$gulf-blue: rgba(201, 223, 236, 1); // Gulf Blue #c9dfec //
+$pastel-light-blue: rgba(213, 214, 234, 1); // Pastel Light Blue #d5d6ea //
+$lavender-blue: rgba(227, 228, 250, 1); // Lavender Blue #e3e4fa //
+$water: rgba(235, 244, 250, 1); // Water #ebf4fa //
+$alice-blue: rgba(240, 248, 255, 1); // AliceBlue #f0f8ff //
+$light-cyan: rgba(224, 255, 255, 1); // LightCyan #e0ffff //
+$light-slate: rgba(204, 255, 255, 1); // Light Slate #ccffff //
+$electric-blue: rgba(154, 254, 255, 1); // Electric Blue #9afeff //
+$tron-blue: rgba(125, 253, 254, 1); // Tron Blue #7dfdfe //
+$blue-zircon: rgba(87, 254, 255, 1); // Blue Zircon #57feff //
+$bright-cyan: rgba(10, 255, 255, 1); // Bright Cyan #0affff //
+$celeste: rgba(80, 235, 236, 1); // Celeste #50ebec //
+$blue-diamond: rgba(78, 226, 236, 1); // Blue Diamond #4ee2ec //
+$bright-turquoise: rgba(22, 226, 245, 1); // Bright Turquoise #16e2f5 //
+$blue-lagoon: rgba(142, 235, 236, 1); // Blue Lagoon #8eebec //
+$pale-turquoise: rgba(175, 238, 238, 1); // PaleTurquoise #afeeee //
+$pale-blue-lily: rgba(207, 236, 236, 1); // Pale Blue Lily #cfecec //
+$tiffany-blue: rgba(129, 216, 208, 1); // Tiffany Blue #81d8d0 //
+$blue-hosta: rgba(119, 191, 199, 1); // Blue Hosta #77bfc7 //
+$cyan-opaque: rgba(146, 199, 199, 1); // Cyan Opaque #92c7c7 //
+$northern-lights-blue: rgba(120, 199, 199, 1); // Northern Lights Blue #78c7c7 //
+$blue-green: rgba(123, 204, 181, 1); // Blue Green #7bccb5 //
+$medium-aquamarine: rgba(102, 205, 170, 1); // MediumAquaMarine #66cdaa //
+$magic-mint: rgba(170, 240, 209, 1); // Magic Mint #aaf0d1 //
+$light-aquamarine: rgba(147, 255, 232, 1); // Light Aquamarine #93ffe8 //
+$turquoise: rgba(64, 224, 208, 1); // Turquoise #40e0d0 //
+$medium-turquoise: rgba(72, 209, 204, 1); // MediumTurquoise #48d1cc //
+$deep-turquoise: rgba(72, 204, 205, 1); // Deep Turquoise #48cccd //
+$jellyfish: rgba(70, 199, 199, 1); // Jellyfish #46c7c7 //
+$blue-turquoise: rgba(67, 198, 219, 1); // Blue Turquoise #43c6db //
+$dark-turquoise: rgba(0, 206, 209, 1); // DarkTurquoise #00ced1 //
+$macaw-blue-green: rgba(67, 191, 199, 1); // Macaw Blue Green #43bfc7 //
+$light-sea-green: rgba(32, 178, 170, 1); // LightSeaGreen #20b2aa //
+$sea-foam-green: rgba(62, 169, 159, 1); // Sea Foam Green #3ea99f //
+$deep-sea: rgba(59, 156, 156, 1); // Deep Sea #3b9c9c //
+$dark-cyan: rgba(0, 139, 139, 1); // DarkCyan #008b8b //
+$medium-teal: rgba(4, 95, 95, 1); // Medium Teal #045f5f //
+$deep-teal: rgba(3, 62, 62, 1); // Deep Teal #033e3e //
+$dark-slate-grey: rgba(37, 56, 60, 1); // DarkSlateGrey or DarkSlateGrey #25383c //
+$gunmetal: rgba(44, 53, 57, 1); // Gunmetal #2c3539 //
+$blue-moss-green: rgba(60, 86, 91, 1); // Blue Moss Green #3c565b //
+$beetle-green: rgba(76, 120, 126, 1); // Beetle Green #4c787e //
+$greyish-turquoise: rgba(94, 125, 126, 1); // Greyish Turquoise #5e7d7e //
+$greenish-blue: rgba(48, 125, 126, 1); // Greenish Blue #307d7e //
+$aquamarine-stone: rgba(52, 135, 129, 1); // Aquamarine Stone #348781 //
+$sea-turtle-green: rgba(67, 141, 128, 1); // Sea Turtle Green #438d80 //
+$dull-sea-green: rgba(78, 137, 117, 1); // Dull Sea Green #4e8975 //
+$deep-sea-green: rgba(48, 103, 84, 1); // Deep Sea Green #306754 //
+$sea-green: rgba(46, 139, 87, 1); // SeaGreen #2e8b57 //
+$dark-mint: rgba(49, 144, 110, 1); // Dark Mint #31906e //
+$jade: rgba(0, 163, 108, 1); // Jade #00a36c //
+$earth-green: rgba(52, 165, 111, 1); // Earth Green #34a56f //
+$emerald: rgba(80, 200, 120, 1); // Emerald #50c878 //
+$mint: rgba(62, 180, 137, 1); // Mint #3eb489 //
+$medium-sea-green: rgba(60, 179, 113, 1); // MediumSeaGreen #3cb371 //
+$camouflage-green: rgba(120, 134, 107, 1); // Camouflage Green #78866b //
+$sage-green: rgba(132, 139, 121, 1); // Sage Green #848b79 //
+$hazel-green: rgba(97, 124, 88, 1); // Hazel Green #617c58 //
+$venom-green: rgba(114, 140, 0, 1); // Venom Green #728c00 //
+$olivedrab: rgba(107, 142, 35, 1); // OliveDrab #6b8e23 //
+$dark-olive-green: rgba(85, 107, 47, 1); // DarkOliveGreen #556b2f //
+$army-green: rgba(75, 83, 32, 1); // Army Green #4b5320 //
+$fern-green: rgba(102, 124, 38, 1); // Fern Green #667c26 //
+$fall-forest-green: rgba(78, 146, 88, 1); // Fall Forest Green #4e9258 //
+$pine-green: rgba(56, 124, 68, 1); // Pine Green #387c44 //
+$medium-forest-green: rgba(52, 114, 53, 1); // Medium Forest Green #347235 //
+$jungle-green: rgba(52, 124, 44, 1); // Jungle Green #347c2c //
+$forest-green: rgba(34, 139, 34, 1); // ForestGreen #228b22 //
+$dark-green: rgba(0, 100, 0, 1); // DarkGreen #006400 //
+$deep-emerald-green: rgba(4, 99, 7, 1); // Deep Emerald Green #046307 //
+$dark-forest-green: rgba(37, 65, 23, 1); // Dark Forest Green #254117 //
+$seaweed-green: rgba(67, 124, 23, 1); // Seaweed Green #437c17 //
+$shamrock-green: rgba(52, 124, 23, 1); // Shamrock Green #347c17 //
+$green-onion: rgba(106, 161, 33, 1); // Green Onion #6aa121 //
+$green-pepper: rgba(74, 160, 44, 1); // Green Pepper #4aa02c //
+$dark-lime-green: rgba(65, 163, 23, 1); // Dark Lime Green #41a317 //
+$parrot-green: rgba(18, 173, 43, 1); // Parrot Green #12ad2b //
+$clover-green: rgba(62, 160, 85, 1); // Clover Green #3ea055 //
+$dinosaur-green: rgba(115, 161, 108, 1); // Dinosaur Green #73a16c //
+$green-snake: rgba(108, 187, 60, 1); // Green Snake #6cbb3c //
+$alien-green: rgba(108, 196, 23, 1); // Alien Green #6cc417 //
+$green-apple: rgba(76, 196, 23, 1); // Green Apple #4cc417 //
+$lime-green: rgba(50, 205, 50, 1); // LimeGreen #32cd32 //
+$pea-green: rgba(82, 208, 23, 1); // Pea Green #52d017 //
+$kelly-green: rgba(76, 197, 82, 1); // Kelly Green #4cc552 //
+$zombie-green: rgba(84, 197, 113, 1); // Zombie Green #54c571 //
+$frog-green: rgba(153, 198, 142, 1); // Frog Green #99c68e //
+$dark-sea-green: rgba(143, 188, 143, 1); // DarkSeaGreen #8fbc8f //
+$green-peas: rgba(137, 195, 92, 1); // Green Peas #89c35c //
+$dollar-bill-green: rgba(133, 187, 101, 1); // Dollar Bill Green #85bb65 //
+$iguana-green: rgba(156, 176, 113, 1); // Iguana Green #9cb071 //
+$acid-green: rgba(176, 191, 26, 1); // Acid Green #b0bf1a //
+$avocado-green: rgba(178, 194, 72, 1); // Avocado Green #b2c248 //
+$pistachio-green: rgba(157, 194, 9, 1); // Pistachio Green #9dc209 //
+$salad-green: rgba(161, 201, 53, 1); // Salad Green #a1c935 //
+$yellow-green: rgba(154, 205, 50, 1); // YellowGreen #9acd32 //
+$pastel-green: rgba(119, 221, 119, 1); // Pastel Green #77dd77 //
+$hummingbird-green: rgba(127, 232, 23, 1); // Hummingbird Green #7fe817 //
+$nebula-green: rgba(89, 232, 23, 1); // Nebula Green #59e817 //
+$stoplight-go-green: rgba(87, 233, 100, 1); // Stoplight Go Green #57e964 //
+$neon-green: rgba(22, 245, 41, 1); // Neon Green #16f529 //
+$jade-green: rgba(94, 251, 110, 1); // Jade Green #5efb6e //
+$lime-mint-green: rgba(54, 245, 127, 1); // Lime Mint Green #36f57f //
+$spring-green: rgba(0, 255, 127, 1); // SpringGreen #00ff7f //
+$medium-spring-green: rgba(0, 250, 154, 1); // MediumSpringGreen #00fa9a //
+$emerald-green: rgba(95, 251, 23, 1); // Emerald Green #5ffb17 //
+$lawn-green: rgba(124, 252, 0, 1); // LawnGreen #7cfc00 //
+$bright-green: rgba(102, 255, 0, 1); // Bright Green #66ff00 //
+$chartreuse: rgba(127, 255, 0, 1); // Chartreuse #7fff00 //
+$yellow-lawn-green: rgba(135, 247, 23, 1); // Yellow Lawn Green #87f717 //
+$aloe-vera-green: rgba(152, 245, 22, 1); // Aloe Vera Green #98f516 //
+$dull-green-yellow: rgba(177, 251, 23, 1); // Dull Green Yellow #b1fb17 //
+$green-yellow: rgba(173, 255, 47, 1); // GreenYellow #adff2f //
+$chameleon-green: rgba(189, 245, 22, 1); // Chameleon Green #bdf516 //
+$neon-yellow-green: rgba(218, 238, 1, 1); // Neon Yellow Green #daee01 //
+$yellow-green-grosbeak: rgba(226, 245, 22, 1); // Yellow Green Grosbeak #e2f516 //
+$tea-green: rgba(204, 251, 93, 1); // Tea Green #ccfb5d //
+$slime-green: rgba(188, 233, 84, 1); // Slime Green #bce954 //
+$algae-green: rgba(100, 233, 134, 1); // Algae Green #64e986 //
+$light-green: rgba(144, 238, 144, 1); // LightGreen #90ee90 //
+$dragon-green: rgba(106, 251, 146, 1); // Dragon Green #6afb92 //
+$palegreen: rgba(152, 251, 152, 1); // PaleGreen #98fb98 //
+$mint-green: rgba(152, 255, 152, 1); // Mint Green #98ff98 //
+$green-thumb: rgba(181, 234, 170, 1); // Green Thumb #b5eaaa //
+$organic-brown: rgba(227, 249, 166, 1); // Organic Brown #e3f9a6 //
+$light-jade: rgba(195, 253, 184, 1); // Light Jade #c3fdb8 //
+$light-rose-green: rgba(219, 249, 219, 1); // Light Rose Green #dbf9db //
+$honey-dew: rgba(240, 255, 240, 1); // HoneyDew #f0fff0 //
+$mint-cream: rgba(245, 255, 250, 1); // MintCream #f5fffa //
+$parchment: rgba(255, 255, 194, 1); // Parchment #ffffc2 //
+$cream: rgba(255, 255, 204, 1); // Cream #ffffcc //
+$beige: rgba(245, 245, 220, 1); // Beige #f5f5dc //
+$cornsilk: rgba(255, 248, 220, 1); // Cornsilk #fff8dc //
+$blonde: rgba(251, 246, 217, 1); // Blonde #fbf6d9 //
+$champagne: rgba(247, 231, 206, 1); // Champagne #f7e7ce //
+$antique-white: rgba(250, 235, 215, 1); // AntiqueWhite #faebd7 //
+$blanched-almond: rgba(255, 235, 205, 1); // BlanchedAlmond #ffebcd //
+$bisque: rgba(255, 228, 196, 1); // Bisque #ffe4c4 //
+$wheat: rgba(245, 222, 179, 1); // Wheat #f5deb3 //
+$peach: rgba(255, 229, 180, 1); // Peach #ffe5b4 //
+$light-orange: rgba(254, 216, 177, 1); // Light Orange #fed8b1 //
+$golden-blonde: rgba(251, 231, 161, 1); // Golden Blonde #fbe7a1 //
+$golden-silk: rgba(243, 227, 195, 1); // Golden Silk #f3e3c3 //
+$dark-blonde: rgba(240, 226, 182, 1); // Dark Blonde #f0e2b6 //
+$light-gold: rgba(241, 229, 172, 1); // Light Gold #f1e5ac //
+$vanilla: rgba(243, 229, 171, 1); // Vanilla #f3e5ab //
+$tan-brown: rgba(236, 229, 182, 1); // Tan Brown #ece5b6 //
+$cardboard-brown: rgba(237, 218, 116, 1); // Cardboard Brown #edda74 //
+$harvest-gold: rgba(237, 226, 117, 1); // Harvest Gold #ede275 //
+$sun-yellow: rgba(255, 232, 124, 1); // Sun Yellow #ffe87c //
+$corn-yellow: rgba(255, 243, 128, 1); // Corn Yellow #fff380 //
+$pastel-yellow: rgba(250, 248, 132, 1); // Pastel Yellow #faf884 //
+$neon-yellow: rgba(255, 255, 51, 1); // Neon Yellow #ffff33 //
+$canary-yellow: rgba(255, 239, 0, 1); // Canary Yellow #ffef00 //
+$banana-yellow: rgba(245, 226, 22, 1); // Banana Yellow #f5e216 //
+$mustard-yellow: rgba(255, 219, 88, 1); // Mustard Yellow #ffdb58 //
+$golden-yellow: rgba(255, 223, 0, 1); // Golden Yellow #ffdf00 //
+$bold-yellow: rgba(249, 219, 36, 1); // Bold Yellow #f9db24 //
+$rubber-ducky-yellow: rgba(255, 216, 1, 1); // Rubber Ducky Yellow #ffd801 //
+$bright-gold: rgba(253, 208, 23, 1); // Bright Gold #fdd017 //
+$golden-brown: rgba(234, 193, 23, 1); // Golden Brown #eac117 //
+$deep-yellow: rgba(246, 190, 0, 1); // Deep Yellow #f6be00 //
+$macaroni-and-cheese: rgba(242, 187, 102, 1); // Macaroni and Cheese #f2bb66 //
+$saffron: rgba(251, 185, 23, 1); // Saffron #fbb917 //
+$beer: rgba(251, 177, 23, 1); // Beer #fbb117 //
+$yellow-orange: rgba(255, 174, 66, 1); // Yellow Orange or Orange Yellow #ffae42 //
+$cantaloupe: rgba(255, 166, 47, 1); // Cantaloupe #ffa62f //
+$brown-sand: rgba(238, 154, 77, 1); // Brown Sand #ee9a4d //
+$sandy-brown: rgba(244, 164, 96, 1); // SandyBrown #f4a460 //
+$brown-sugar: rgba(226, 167, 111, 1); // Brown Sugar #e2a76f //
+$camel-brown: rgba(193, 154, 107, 1); // Camel Brown #c19a6b //
+$deer-brown: rgba(230, 191, 131, 1); // Deer Brown #e6bf83 //
+$burlywood: rgba(222, 184, 135, 1); // BurlyWood #deb887 //
+$tan: rgba(210, 180, 140, 1); // Tan #d2b48c //
+$light-french-beige: rgba(200, 173, 127, 1); // Light French Beige #c8ad7f //
+$sand: rgba(194, 178, 128, 1); // Sand #c2b280 //
+$sage: rgba(188, 184, 138, 1); // Sage #bcb88a //
+$fall-leaf-brown: rgba(200, 181, 96, 1); // Fall Leaf Brown #c8b560 //
+$ginger-brown: rgba(201, 190, 98, 1); // Ginger Brown #c9be62 //
+$olive-green: rgba(186, 184, 108, 1); // Olive Green #bab86c //
+$brass: rgba(181, 166, 66, 1); // Brass #b5a642 //
+$cookie-brown: rgba(199, 163, 23, 1); // Cookie Brown #c7a317 //
+$metallic-gold: rgba(212, 175, 55, 1); // Metallic Gold #d4af37 //
+$bee-yellow: rgba(233, 171, 23, 1); // Bee Yellow #e9ab17 //
+$school-bus-yellow: rgba(232, 163, 23, 1); // School Bus Yellow #e8a317 //
+$orange-gold: rgba(212, 160, 23, 1); // Orange Gold #d4a017 //
+$caramel: rgba(198, 142, 23, 1); // Caramel #c68e17 //
+$dark-golden-rod: rgba(184, 134, 11, 1); // DarkGoldenRod #b8860b //
+$cinnamon: rgba(197, 137, 23, 1); // Cinnamon #c58917 //
+$peru: rgba(205, 133, 63, 1); // Peru #cd853f //
+$bronze: rgba(205, 127, 50, 1); // Bronze #cd7f32 //
+$tiger-orange: rgba(200, 129, 65, 1); // Tiger Orange #c88141 //
+$copper: rgba(184, 115, 51, 1); // Copper #b87333 //
+$wood: rgba(150, 111, 51, 1); // Wood #966f33 //
+$oak-brown: rgba(128, 101, 23, 1); // Oak Brown #806517 //
+$antique-bronze: rgba(102, 93, 30, 1); // Antique Bronze #665d1e //
+$hazel: rgba(142, 118, 24, 1); // Hazel #8e7618 //
+$dark-yellow: rgba(139, 128, 0, 1); // Dark Yellow #8b8000 //
+$dark-moccasin: rgba(130, 120, 57, 1); // Dark Moccasin #827839 //
+$bullet-shell: rgba(175, 155, 96, 1); // Bullet Shell #af9b60 //
+$army-brown: rgba(130, 123, 96, 1); // Army Brown #827b60 //
+$sandstone: rgba(120, 109, 95, 1); // Sandstone #786d5f //
+$taupe: rgba(72, 60, 50, 1); // Taupe #483c32 //
+$mocha: rgba(73, 61, 38, 1); // Mocha #493d26 //
+$milk-chocolate: rgba(81, 59, 28, 1); // Milk Chocolate #513b1c //
+$grey-brown: rgba(61, 54, 53, 1); // Grey Brown #3d3635 //
+$dark-coffee: rgba(59, 47, 47, 1); // Dark Coffee #3b2f2f //
+$old-burgundy: rgba(67, 48, 46, 1); // Old Burgundy #43302e //
+$western-charcoal: rgba(73, 65, 63, 1); // Western Charcoal #49413f //
+$bakers-brown: rgba(92, 51, 23, 1); // Bakers Brown #5c3317 //
+$dark-brown: rgba(101, 67, 33, 1); // Dark Brown #654321 //
+$sepia-brown: rgba(112, 66, 20, 1); // Sepia Brown #704214 //
+$coffee: rgba(111, 78, 55, 1); // Coffee #6f4e37 //
+$brown-bear: rgba(131, 92, 59, 1); // Brown Bear #835c3b //
+$red-dirt: rgba(127, 82, 23, 1); // Red Dirt #7f5217 //
+$sepia: rgba(127, 70, 44, 1); // Sepia #7f462c //
+$sienna: rgba(160, 82, 45, 1); // Sienna #a0522d //
+$saddle-brown: rgba(139, 69, 19, 1); // SaddleBrown #8b4513 //
+$dark-sienna: rgba(138, 65, 23, 1); // Dark Sienna #8a4117 //
+$sangria: rgba(126, 56, 23, 1); // Sangria #7e3817 //
+$blood-red: rgba(126, 53, 23, 1); // Blood Red #7e3517 //
+$chestnut: rgba(149, 69, 53, 1); // Chestnut #954535 //
+$chestnut-red: rgba(195, 74, 44, 1); // Chestnut Red #c34a2c //
+$mahogany: rgba(192, 64, 0, 1); // Mahogany #c04000 //
+$red-fox: rgba(195, 88, 23, 1); // Red Fox #c35817 //
+$dark-bisque: rgba(184, 101, 0, 1); // Dark Bisque #b86500 //
+$light-brown: rgba(181, 101, 29, 1); // Light Brown #b5651d //
+$rust: rgba(195, 98, 65, 1); // Rust #c36241 //
+$copper-red: rgba(203, 109, 81, 1); // Copper Red #cb6d51 //
+$orange-salmon: rgba(196, 116, 81, 1); // Orange Salmon #c47451 //
+$chocolate: rgba(210, 105, 30, 1); // Chocolate #d2691e //
+$sedona: rgba(204, 102, 0, 1); // Sedona #cc6600 //
+$papaya-orange: rgba(229, 103, 23, 1); // Papaya Orange #e56717 //
+$halloween-orange: rgba(230, 108, 44, 1); // Halloween Orange #e66c2c //
+$neon-orange: rgba(255, 103, 0, 1); // Neon Orange #ff6700 //
+$bright-orange: rgba(255, 95, 31, 1); // Bright Orange #ff5f1f //
+$pumpkin-orange: rgba(248, 114, 23, 1); // Pumpkin Orange #f87217 //
+$carrot-orange: rgba(248, 128, 23, 1); // Carrot Orange #f88017 //
+$construction-cone-orange: rgba(248, 116, 49, 1); // Construction Cone Orange #f87431 //
+$indian-saffron: rgba(255, 119, 34, 1); // Indian Saffron #ff7722 //
+$sunrise-orange: rgba(230, 116, 81, 1); // Sunrise Orange #e67451 //
+$mango-orange: rgba(255, 128, 64, 1); // Mango Orange #ff8040 //
+$basket-ball-orange: rgba(248, 129, 88, 1); // Basket Ball Orange #f88158 //
+$light-salmon-rose: rgba(249, 150, 107, 1); // Light Salmon Rose #f9966b //
+$tangerine: rgba(231, 138, 97, 1); // Tangerine #e78a61 //
+$light-copper: rgba(218, 138, 103, 1); // Light Copper #da8a67 //
+$pastel-red: rgba(246, 114, 128, 1); // Pastel Red #f67280 //
+$pink-coral: rgba(231, 116, 113, 1); // Pink Coral #e77471 //
+$bean-red: rgba(247, 93, 89, 1); // Bean Red #f75d59 //
+$valentine-red: rgba(229, 84, 81, 1); // Valentine Red #e55451 //
+$indianred: rgba(205, 92, 92, 1); // IndianRed #cd5c5c //
+$shocking-orange: rgba(229, 91, 60, 1); // Shocking Orange #e55b3c //
+$neon-red: rgba(253, 28, 3, 1); // Neon Red #fd1c03 //
+$scarlet: rgba(255, 36, 0, 1); // Scarlet #ff2400 //
+$ruby-red: rgba(246, 34, 23, 1); // Ruby Red #f62217 //
+$ferrari-red: rgba(247, 13, 26, 1); // Ferrari Red #f70d1a //
+$fire-engine-red: rgba(246, 40, 23, 1); // Fire Engine Red #f62817 //
+$lava-red: rgba(228, 34, 23, 1); // Lava Red #e42217 //
+$love-red: rgba(228, 27, 23, 1); // Love Red #e41b17 //
+$grapefruit: rgba(220, 56, 31, 1); // Grapefruit #dc381f //
+$cherry-red: rgba(194, 70, 65, 1); // Cherry Red #c24641 //
+$chilli-pepper: rgba(193, 27, 23, 1); // Chilli Pepper #c11b17 //
+$firebrick: rgba(178, 34, 34, 1); // FireBrick #b22222 //
+$tomato-sauce-red: rgba(178, 24, 7, 1); // Tomato Sauce Red #b21807 //
+$carbon-red: rgba(167, 13, 42, 1); // Carbon Red #a70d2a //
+$cranberry: rgba(159, 0, 15, 1); // Cranberry #9f000f //
+$saffron-red: rgba(147, 19, 20, 1); // Saffron Red #931314 //
+$red-wine: rgba(153, 0, 18, 1); // Red Wine or Wine Red #990012 //
+$burgundy: rgba(140, 0, 26, 1); // Burgundy #8c001a //
+$deep-red: rgba(128, 5, 23, 1); // Deep Red #800517 //
+$red-blood: rgba(102, 0, 0, 1); // Red Blood #660000 //
+$blood-night: rgba(85, 22, 6, 1); // Blood Night #551606 //
+$black-bean: rgba(61, 12, 2, 1); // Black Bean #3d0c02 //
+$chocolate-brown: rgba(63, 0, 15, 1); // Chocolate Brown #3f000f //
+$midnight: rgba(43, 27, 23, 1); // Midnight #2b1b17 //
+$purple-lily: rgba(85, 10, 53, 1); // Purple Lily #550a35 //
+$purple-maroon: rgba(129, 5, 65, 1); // Purple Maroon #810541 //
+$plum-pie: rgba(125, 5, 65, 1); // Plum Pie #7d0541 //
+$plum-velvet: rgba(125, 5, 82, 1); // Plum Velvet #7d0552 //
+$dark-raspberry: rgba(135, 38, 87, 1); // Dark Raspberry #872657 //
+$velvet-maroon: rgba(126, 53, 77, 1); // Velvet Maroon #7e354d //
+$rosy-finch: rgba(127, 78, 82, 1); // Rosy Finch #7f4e52 //
+$dull-purple: rgba(127, 82, 93, 1); // Dull Purple #7f525d //
+$puce: rgba(127, 90, 88, 1); // Puce #7f5a58 //
+$rose-dust: rgba(153, 112, 112, 1); // Rose Dust #997070 //
+$rosy-pink: rgba(179, 132, 129, 1); // Rosy Pink #b38481 //
+$rosybrown: rgba(188, 143, 143, 1); // RosyBrown #bc8f8f //
+$khaki-rose: rgba(197, 144, 142, 1); // Khaki Rose #c5908e //
+$pink-brown: rgba(196, 129, 137, 1); // Pink Brown #c48189 //
+$lipstick-pink: rgba(196, 135, 147, 1); // Lipstick Pink #c48793 //
+$rose: rgba(232, 173, 170, 1); // Rose #e8adaa //
+$silver-pink: rgba(196, 174, 173, 1); // Silver Pink #c4aead //
+$rose-gold: rgba(236, 197, 192, 1); // Rose Gold #ecc5c0 //
+$deep-peach: rgba(255, 203, 164, 1); // Deep Peach #ffcba4 //
+$pastel-orange: rgba(248, 184, 139, 1); // Pastel Orange #f8b88b //
+$desert-sand: rgba(237, 201, 175, 1); // Desert Sand #edc9af //
+$unbleached-silk: rgba(255, 221, 202, 1); // Unbleached Silk #ffddca //
+$pig-pink: rgba(253, 215, 228, 1); // Pig Pink #fdd7e4 //
+$blush: rgba(255, 230, 232, 1); // Blush #ffe6e8 //
+$misty-rose: rgba(255, 228, 225, 1); // MistyRose #ffe4e1 //
+$pink-bubble-gum: rgba(255, 223, 221, 1); // Pink Bubble Gum #ffdfdd //
+$light-red: rgba(255, 204, 203, 1); // Light Red #ffcccb //
+$light-rose: rgba(251, 207, 205, 1); // Light Rose #fbcfcd //
+$deep-rose: rgba(251, 187, 185, 1); // Deep Rose #fbbbb9 //
+$donut-pink: rgba(250, 175, 190, 1); // Donut Pink #faafbe //
+$baby-pink: rgba(250, 175, 186, 1); // Baby Pink #faafba //
+$flamingo-pink: rgba(249, 167, 176, 1); // Flamingo Pink #f9a7b0 //
+$pastel-pink: rgba(254, 163, 170, 1); // Pastel Pink #fea3aa //
+$pink-rose: rgba(231, 161, 176, 1); // Pink Rose #e7a1b0 //
+$pink-daisy: rgba(231, 153, 163, 1); // Pink Daisy #e799a3 //
+$cadillac-pink: rgba(227, 138, 174, 1); // Cadillac Pink #e38aae //
+$carnation-pink: rgba(247, 120, 161, 1); // Carnation Pink #f778a1 //
+$blush-red: rgba(229, 110, 148, 1); // Blush Red #e56e94 //
+$purple-pink: rgba(209, 101, 135, 1); // Purple Pink #d16587 //
+$tulip-pink: rgba(194, 90, 124, 1); // Tulip Pink #c25a7c //
+$bashful-pink: rgba(194, 82, 131, 1); // Bashful Pink #c25283 //
+$dark-pink: rgba(231, 84, 128, 1); // Dark Pink #e75480 //
+$dark-hot-pink: rgba(246, 96, 171, 1); // Dark Hot Pink #f660ab //
+$hotpink: rgba(255, 105, 180, 1); // HotPink #ff69b4 //
+$watermelon-pink: rgba(252, 108, 133, 1); // Watermelon Pink #fc6c85 //
+$violet-red: rgba(246, 53, 138, 1); // Violet Red #f6358a //
+$hot-deep-pink: rgba(245, 40, 135, 1); // Hot Deep Pink #f52887 //
+$neon-pink: rgba(245, 53, 170, 1); // Neon Pink #f535aa //
+$neon-hot-pink: rgba(253, 52, 156, 1); // Neon Hot Pink #fd349c //
+$pink-cupcake: rgba(228, 94, 157, 1); // Pink Cupcake #e45e9d //
+$dimorphotheca-magenta: rgba(227, 49, 157, 1); // Dimorphotheca Magenta #e3319d //
+$pink-lemonade: rgba(228, 40, 124, 1); // Pink Lemonade #e4287c //
+$raspberry: rgba(227, 11, 93, 1); // Raspberry #e30b5d //
+$bright-maroon: rgba(195, 33, 72, 1); // Bright Maroon #c32148 //
+$rose-red: rgba(194, 30, 86, 1); // Rose Red #c21e56 //
+$rogue-pink: rgba(193, 40, 105, 1); // Rogue Pink #c12869 //
+$burnt-pink: rgba(193, 34, 103, 1); // Burnt Pink #c12267 //
+$pink-violet: rgba(202, 34, 107, 1); // Pink Violet #ca226b //
+$dark-carnation-pink: rgba(193, 34, 131, 1); // Dark Carnation Pink #c12283 //
+$raspberry-purple: rgba(179, 68, 108, 1); // Raspberry Purple #b3446c //
+$pink-plum: rgba(185, 59, 143, 1); // Pink Plum #b93b8f //
+$orchid: rgba(218, 112, 214, 1); // Orchid #da70d6 //
+$deep-mauve: rgba(223, 115, 212, 1); // Deep Mauve #df73d4 //
+$violet: rgba(238, 130, 238, 1); // Violet #ee82ee //
+$bright-neon-pink: rgba(244, 51, 255, 1); // Bright Neon Pink #f433ff //
+$crimson-purple: rgba(226, 56, 236, 1); // Crimson Purple #e238ec //
+$heliotrope-purple: rgba(212, 98, 255, 1); // Heliotrope Purple #d462ff //
+$tyrian-purple: rgba(196, 90, 236, 1); // Tyrian Purple #c45aec //
+$medium-orchid: rgba(186, 85, 211, 1); // MediumOrchid #ba55d3 //
+$purple-flower: rgba(167, 74, 199, 1); // Purple Flower #a74ac7 //
+$orchid-purple: rgba(176, 72, 181, 1); // Orchid Purple #b048b5 //
+$pastel-violet: rgba(210, 145, 188, 1); // Pastel Violet #d291bc //
+$mauve-taupe: rgba(145, 95, 109, 1); // Mauve Taupe #915f6d //
+$viola-purple: rgba(126, 88, 126, 1); // Viola Purple #7e587e //
+$eggplant: rgba(97, 64, 81, 1); // Eggplant #614051 //
+$plum-purple: rgba(88, 55, 89, 1); // Plum Purple #583759 //
+$grape: rgba(94, 90, 128, 1); // Grape #5e5a80 //
+$purple-navy: rgba(78, 81, 128, 1); // Purple Navy #4e5180 //
+$slate-blue: rgba(106, 90, 205, 1); // SlateBlue #6a5acd //
+$blue-lotus: rgba(105, 96, 236, 1); // Blue Lotus #6960ec //
+$light-slate-blue: rgba(115, 106, 255, 1); // Light Slate Blue #736aff //
+$medium-slate-blue: rgba(123, 104, 238, 1); // MediumSlateBlue #7b68ee //
+$periwinkle-purple: rgba(117, 117, 207, 1); // Periwinkle Purple #7575cf //
+$purple-amethyst: rgba(108, 45, 199, 1); // Purple Amethyst #6c2dc7 //
+$bright-purple: rgba(106, 13, 173, 1); // Bright Purple #6a0dad //
+$deep-periwinkle: rgba(84, 83, 166, 1); // Deep Periwinkle #5453a6 //
+$dark-slateblue: rgba(72, 61, 139, 1); // DarkSlateBlue #483d8b //
+$purple-haze: rgba(78, 56, 126, 1); // Purple Haze #4e387e //
+$purple-iris: rgba(87, 27, 126, 1); // Purple Iris #571b7e //
+$dark-purple: rgba(75, 1, 80, 1); // Dark Purple #4b0150 //
+$deep-purple: rgba(54, 1, 63, 1); // Deep Purple #36013f //
+$purple-monster: rgba(70, 27, 126, 1); // Purple Monster #461b7e //
+$indigo: rgba(75, 0, 130, 1); // Indigo #4b0082 //
+$blue-whale: rgba(52, 45, 126, 1); // Blue Whale #342d7e //
+$rebecca-purple: rgba(102, 51, 153, 1); // RebeccaPurple #663399 //
+$purple-jam: rgba(106, 40, 126, 1); // Purple Jam #6a287e //
+$dark-magenta: rgba(139, 0, 139, 1); // DarkMagenta #8b008b //
+$french-lilac: rgba(134, 96, 142, 1); // French Lilac #86608e //
+$dark-orchid: rgba(153, 50, 204, 1); // DarkOrchid #9932cc //
+$dark-violet: rgba(148, 0, 211, 1); // DarkViolet #9400d3 //
+$purple-violet: rgba(141, 56, 201, 1); // Purple Violet #8d38c9 //
+$jasmine-purple: rgba(162, 59, 236, 1); // Jasmine Purple #a23bec //
+$purple-daffodil: rgba(176, 65, 255, 1); // Purple Daffodil #b041ff //
+$clemantis-violet: rgba(132, 45, 206, 1); // Clemantis Violet #842dce //
+$blueviolet: rgba(138, 43, 226, 1); // BlueViolet #8a2be2 //
+$purple-sage-bush: rgba(122, 93, 199, 1); // Purple Sage Bush #7a5dc7 //
+$lovely-purple: rgba(127, 56, 236, 1); // Lovely Purple #7f38ec //
+$neon-purple: rgba(157, 0, 255, 1); // Neon Purple #9d00ff //
+$purple-plum: rgba(142, 53, 239, 1); // Purple Plum #8e35ef //
+$aztech-purple: rgba(137, 59, 255, 1); // Aztech Purple #893bff //
+$lavender-purple: rgba(150, 123, 182, 1); // Lavender Purple #967bb6 //
+$medium-purple: rgba(147, 112, 219, 1); // MediumPurple #9370db //
+$light-purple: rgba(132, 103, 215, 1); // Light Purple #8467d7 //
+$crocus-purple: rgba(145, 114, 236, 1); // Crocus Purple #9172ec //
+$purple-mimosa: rgba(158, 123, 255, 1); // Purple Mimosa #9e7bff //
+$periwinkle: rgba(204, 204, 255, 1); // Periwinkle #ccccff //
+$pale-lilac: rgba(220, 208, 255, 1); // Pale Lilac #dcd0ff //
+$mauve: rgba(224, 176, 255, 1); // Mauve #e0b0ff //
+$bright-lilac: rgba(216, 145, 239, 1); // Bright Lilac #d891ef //
+$rich-lilac: rgba(182, 102, 210, 1); // Rich Lilac #b666d2 //
+$purple-dragon: rgba(195, 142, 199, 1); // Purple Dragon #c38ec7 //
+$lilac: rgba(200, 162, 200, 1); // Lilac #c8a2c8 //
+$plum: rgba(221, 160, 221, 1); // Plum #dda0dd //
+$blush-pink: rgba(230, 169, 236, 1); // Blush Pink #e6a9ec //
+$pastel-purple: rgba(242, 162, 232, 1); // Pastel Purple #f2a2e8 //
+$blossom-pink: rgba(249, 183, 255, 1); // Blossom Pink #f9b7ff //
+$wisteria-purple: rgba(198, 174, 199, 1); // Wisteria Purple #c6aec7 //
+$purple-thistle: rgba(210, 185, 211, 1); // Purple Thistle #d2b9d3 //
+$periwinkle-pink: rgba(233, 207, 236, 1); // Periwinkle Pink #e9cfec //
+$cotton-candy: rgba(252, 223, 255, 1); // Cotton Candy #fcdfff //
+$lavender-pinocchio: rgba(235, 221, 226, 1); // Lavender Pinocchio #ebdde2 //
+$ash-white: rgba(233, 228, 212, 1); // Ash White #e9e4d4 //
+$white-chocolate: rgba(237, 230, 214, 1); // White Chocolate #ede6d6 //
+$soft-ivory: rgba(250, 240, 221, 1); // Soft Ivory #faf0dd //
+$off-white: rgba(248, 240, 227, 1); // Off White #f8f0e3 //
+$lavender-blush: rgba(255, 240, 245, 1); // LavenderBlush #fff0f5 //
+$pearl: rgba(253, 238, 244, 1); // Pearl #fdeef4 //
+$egg-shell: rgba(255, 249, 227, 1); // Egg Shell #fff9e3 //
+$linen: rgba(250, 240, 230, 1); // Linen #faf0e6 //
+$rice: rgba(250, 245, 239, 1); // Rice #faf5ef //
+$floral-white: rgba(255, 250, 240, 1); // FloralWhite #fffaf0 //
+$ivory: rgba(255, 255, 240, 1); // Ivory #fffff0 //
+$light-white: rgba(255, 255, 247, 1); // Light White #fffff7 //
+$white-smoke: rgba(245, 245, 245, 1); // WhiteSmoke #f5f5f5 //
+$cotton: rgba(251, 251, 249, 1); // Cotton #fbfbf9 //
+$milk-white: rgba(254, 252, 255, 1); // Milk White #fefcff //
+
+$plum-shade: rgba(104, 89, 113, 1); // Plum Shade: 100F-6 685971//
+$deep-aubergine: rgba(70, 56, 74, 1); // Deep Aubergine 100F-7 46384A //
+$rose-garland: rgba(119, 65, 114, 1); // Rose Garland 100D-6 774172//
+$haunting-melody: rgba(113, 42, 95, 1); // Haunting Melody 110D-6 712A5F //
+$vin-rouge: rgba(83, 36, 72, 1); // Vin Rouge 110D-7 532448 //
+$deep-garnet: rgba(72, 42, 63, 1); // Deep Garnet 110F-7 482A3F //
+$plum-raisin: rgba(79, 47, 61, 1); // Plum Raisin 120F-7 4F2F3D //
+$semi-sweet: rgba(87, 63, 74, 1); // Semi Sweet 130F-7 573F4A //
+$embarcadero: rgba(73, 48, 57, 1); // Embarcadero 140F-7 493039//
+$pompadour: rgba(42, 0, 42, 1); // Pompadour 140F-7 520052//
+$toledo: rgba(30, 0, 30, 1); // Toledo 300030//
+$black-russian: rgba(22, 0, 50, 1); // Black Russian 220050//
+$burnished-mahogany: rgba(95, 46, 55, 1); // Burnished Mahogany 160F-7 5F2E37 //
+$warm-brownie: rgba(77, 54, 55, 1); // Warm Brownie 180F-7 4D3637 //
+$hazel-woods: rgba(51, 81, 60, 1); // Hazel Woods 460F-7 33513C //
+$deep-jungle: rgba(40, 83, 50, 1); // Deep Jungle 470F-7 285332 rgba//
+$sycamore-tree: rgba(41, 77, 60, 1); // Sycamore Tree 480F-7 294D3C //
+
+$gravel-10: rgba(76, 76, 76, .1);
+$gravel-40: rgba(76, 76, 76, .40);
+$gallery-50: rgba(239, 237, 239, .5);
+$gallery-80: rgba(239, 237, 239, .8);
+$mine-shaft-20: rgba(52, 51, 49, .2);
+$mine-shaft-30: rgba(52, 51, 49, .3);
+$firm-shark-30: rgba(33, 38, 49, .3);
+$firm-shark-50: rgba(33, 38, 49, .5);

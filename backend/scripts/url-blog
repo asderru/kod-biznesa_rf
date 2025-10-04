@@ -1,0 +1,11 @@
+http://panel.test.local/blog/category/index
+http://panel.test.local/blog/category/view?id=3
+http://panel.test.local/blog/category/update?id=3
+http://panel.test.local/blog/category/create
+http://panel.test.local/blog/category/resort?id=777
+http://panel.test.local/blog/post/index
+http://panel.test.local/blog/post/view?id=4
+http://panel.test.local/blog/post/update?id=4
+http://panel.test.local/blog/post/create
+http://panel.test.local/blog/post/create?id=3
+http://panel.test.local/blog/post/resort?id=2

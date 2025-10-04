@@ -1,0 +1,80 @@
+.book-card {
+  max-width: 300px;
+}
+
+.book-card__image {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px solid $firm-grey;
+}
+
+.book-card__body {
+  position: relative;
+}
+
+.book-card__title {
+  padding: .5em 1em;
+  text-align: center;
+  font-family: $font-02;
+  font-weight: 700;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+}
+
+.author-card__title {
+  padding: 2em 1em;
+  text-align: center;
+  font-family: $font-02;
+  font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
+.book-card__description {
+  padding: .5em .5em 2em;
+  text-align: left;
+  font-family: $font-03;
+  font-weight: 500;
+  font-size: .9em;
+}
+
+.author-card__description {
+  border-top: 1px solid $firm-grey-light;
+  padding: .5em .5em 3em;
+  text-align: left;
+  font-family: $font-03;
+  font-weight: 500;
+  font-size: .9em;
+
+}
+
+.author-card__reference,
+.book-card__reference {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.book-card__reference {
+  text-align: end;
+  font-size: .9em;
+  padding: .5em 1em;
+}
+
+.author-card__reference {
+  text-align: end;
+  font-size: .8em;
+  padding: .5em;
+}
+
+.btn-outline-secondary {
+  /* Дополнительные стили для кнопки, если необходимо */
+}
+
+.child-book__card {
+  max-width: 640px;
+  margin-bottom: 1em;
+}
+.author-card {
+
+}

@@ -1,0 +1,5 @@
+http://panel.test.local/shop/brand
+http://panel.test.local/shop/brand/view?id=2
+http://panel.test.local/shop/brand/update?id=2
+http://panel.test.local/shop/brand/create
+http://panel.test.local/shop/brand/resort?id=777

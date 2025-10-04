@@ -1,0 +1,29 @@
+.breadcrumb__image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 110%;
+  min-height: 50%;
+  opacity: 0.3;
+  z-index: -1;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.breadcrumb__inner {
+  padding: 4em 2em;
+  display: flex;
+  flex-direction: column; /* Отображаем элементы по вертикали */
+  align-items: center; /* Центрируем элементы по горизонтали внутри flex-контейнера */
+}
+
+.breadcrumb-title {
+  text-align: center; /* Центрируем содержимое по горизонтали */
+  padding: .5em 1em;
+  margin: 0; /* Убираем маржины для более точного центрирования */
+}
+
+nav.breadcrumb {
+  margin-top: 0; /* Добавим отступ сверху для выравнивания */
+}

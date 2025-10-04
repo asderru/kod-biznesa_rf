@@ -1,0 +1,9 @@
+http://panel.test.local/forum/group
+http://panel.test.local/forum/group/view?id=2
+http://panel.test.local/forum/group/update?id=2
+http://panel.test.local/forum/group/create
+http://panel.test.local/forum/group/resort?id=777
+http://panel.test.local/forum/thread
+http://panel.test.local/forum/thread/view?id=3
+http://panel.test.local/forum/thread/update?id=3
+http://panel.test.local/forum/thread/create

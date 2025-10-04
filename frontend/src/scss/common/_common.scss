@@ -1,0 +1,59 @@
+.content-area {
+  min-height: 90vh;
+  padding-top: 90px;
+}
+
+.alert-box {
+  padding: 1em;
+}
+
+.section-area {
+  padding: 2em 0;
+}
+
+.section-area__title {
+  font-family: $font-02;
+  font-weight: 700;
+  text-align: center;
+  padding: .5em 1em 1em;
+
+  span {
+    color: $firm-base;
+  }
+}
+
+.section-area__description {
+  font-family: $font-02;
+  font-weight: 400;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: .5em 1em 1em;
+}
+
+.section-area__content {
+  padding: 1em;
+  border-bottom: 1px solid $firm-grey-light;
+  margin-bottom: 1em;
+}
+
+.book-area__header {
+  padding: 1em 0;
+}
+
+.book-area__content {
+  padding: 2em 0;
+  background-color: $firm-bgc-light;
+}
+
+.read-more__link {
+  text-transform: uppercase;
+  font-family: $font-02;
+  font-size: .8em;
+  font-weight: 600;
+}
+
+.read-more__link:hover {
+  color: $red;
+  text-decoration: underline;
+}

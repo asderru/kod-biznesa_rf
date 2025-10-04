@@ -1,0 +1,21 @@
+.article-area {
+  padding: 0;
+  background-color: $white;
+}
+
+.article-area__bottom,
+.article-area__top {
+  padding: 2em;
+}
+
+.article-area__content {
+  padding: 2em 1em;
+  border-bottom: 1px solid $firm-grey-light;
+  margin-bottom: 2em;
+}
+
+.article-area__bottom {
+  .grid-view {
+    padding: 2em 2em 1em 1em;
+  }
+}

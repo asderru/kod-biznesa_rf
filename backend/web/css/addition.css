@@ -1,0 +1,102 @@
+.sidebar-homepage {
+    padding: .5em;
+}
+
+.sidebar-panel {
+    border-top: 1px dotted #999;
+    padding: .5em;
+    text-align: center;
+}
+
+.sidebar-brand {
+    display: block;
+    font-size: 1.15em;
+    font-weight: 600;
+    padding: .5em;
+}
+
+.dropdown-header {
+    font-weight: 600;
+}
+
+.dropdown-mega-list {
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+.content {
+    direction: ltr;
+    flex: 1;
+    max-width: 100vw;
+    padding: 0 .75em;
+    width: 100vw
+}
+
+@media (min-width: 768px) {
+    .content {
+        max-width: auto;
+        width: auto
+    }
+}
+/*цветовые кнопки*/
+
+.dropdown-mega-list .dropdown-item {
+    padding: 0 .5em;
+}
+
+.buttons-area_colorscheme {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em; /* Пространство между кнопками */
+    padding: 0;
+    width: 1em; /* Ширина контейнера */
+}
+
+.buttons-area_colorscheme .btn {
+    text-align: center; /* Центрирование текста */
+}
+
+.sidebar-toggle {
+    margin-left: 1em;
+}
+
+.btn-sm {
+    margin-right: .2em;
+    margin-bottom: .2em;
+}
+
+.alert-area {
+    .alert {
+        padding: 1em;
+    }
+}
+a.asc::after {
+    content: "\f884"; /* Unicode символ для иконки fa-arrow-down-short-wide */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900; /* Жирный стиль */
+    margin-left: 5px; /* Расстояние между текстом и иконкой */
+}
+
+a.desc::after {
+    content: "\f160"; /* Unicode символ для иконки fa-arrow-down-wide-short */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900; /* Жирный стиль */
+    margin-left: 5px; /* Расстояние между текстом и иконкой */
+}
+.sidebar-content {
+    height: 200vh;
+}
+
+td > img {
+    width: 100%;
+}
+
+.card.keyword-box {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    max-height: 100vh; /* Ограничиваем максимальную высоту */
+    overflow-y: auto; /* Добавляем прокрутку, если содержимое превышает max-height */
+}

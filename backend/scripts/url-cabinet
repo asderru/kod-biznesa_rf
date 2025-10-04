@@ -1,0 +1,16 @@
+http://panel.shopnseo.local/login/
+http://panel.shopnseo.local/signup/
+http://panel.shopnseo.local/addon/anons/index
+http://panel.shopnseo.local/addon/anons/view?id=5
+http://panel.shopnseo.local/addon/anons/update?id=5
+http://panel.shopnseo.local/addon/anons/create
+http://panel.shopnseo.local/addon/anons/resort?id=3
+http://panel.shopnseo.local/blog/category/index
+http://panel.shopnseo.local/blog/category/view?id=5
+http://panel.shopnseo.local/blog/category/update?id=5
+http://panel.shopnseo.local/blog/category/create
+http://panel.shopnseo.local/blog/category/resort?id=3
+http://panel.shopnseo.local/blog/post/index
+http://panel.shopnseo.local/blog/post/view?id=5
+http://panel.shopnseo.local/blog/post/update?id=5
+http://panel.shopnseo.local/blog/post/create

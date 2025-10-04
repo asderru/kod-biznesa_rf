@@ -1,0 +1,1043 @@
+-- База данных: `dbshop_777`
+
+CREATE TABLE `q_information` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `site_id` int UNSIGNED NOT NULL DEFAULT '777',
+  `user_id` int UNSIGNED NOT NULL,
+  `site_mode` smallint UNSIGNED NOT NULL DEFAULT '1',
+  `tariff_id` mediumint UNSIGNED DEFAULT NULL,
+  `name` varchar(31) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Название',
+  `path` varchar(63) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `advert` varchar(1023) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `photo` varchar(63) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `color` tinyint UNSIGNED NOT NULL DEFAULT '1',
+  `status` tinyint UNSIGNED NOT NULL DEFAULT '1',
+  `rating` tinyint UNSIGNED NOT NULL DEFAULT '1',
+  `tree` int UNSIGNED NOT NULL DEFAULT '777',
+  `lft` smallint UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Поле LFT',
+  `rgt` smallint UNSIGNED NOT NULL DEFAULT '2' COMMENT 'Поле RGT',
+  `depth` smallint UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Глубина',
+  `title` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` varchar(511) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `created_at` int UNSIGNED NOT NULL DEFAULT UNIX_TIMESTAMP() COMMENT 'Время создания',
+  `updated_at` int UNSIGNED DEFAULT NULL ON UPDATE UNIX_TIMESTAMP()  'Время обновления',
+  `content_id` int UNSIGNED DEFAULT NULL,
+  `count_stock` int UNSIGNED NOT NULL DEFAULT '777',
+  `app_type` smallint UNSIGNED NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `idx_site_id` (`site_id`),
+  KEY `idx_user_id` (`user_id`),
+  KEY `idx_tariff` (`tariff_id`),
+  KEY `idx_content` (`content_id`),
+  KEY `idx_tree_lft_rgt` (`tree`, `lft`, `rgt`),
+  KEY `idx_status` (`status`),
+  KEY `idx_mode_type` (`site_mode`, `app_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `site_id` int UNSIGNED NOT NULL DEFAULT '1' COMMENT 'ID сайта',
+  `username` varchar(31) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Псевдоним',
+  `auth_key` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Ключ авторизации',
+  `password_hash` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'HASH пароля',
+  `password_reset_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Токен сброса пароля',
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'email',
+  `email_confirm_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Токен подтверждения',
+  `status` tinyint UNSIGNED NOT NULL DEFAULT '10' COMMENT 'Статус',
+  `created_at` int UNSIGNED NOT NULL DEFAULT UNIX_TIMESTAMP() COMMENT 'Время создания',
+  `updated_at` int UNSIGNED DEFAULT NULL ON UPDATE UNIX_TIMESTAMP()  'Время обновления',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_email` (`email`),
+  UNIQUE KEY `idx_username` (`username`),
+  UNIQUE KEY `idx_password_reset_token` (`password_reset_token`),
+  UNIQUE KEY `idx_email_confirm_token` (`email_confirm_token`),
+  KEY `idx_site_id` (`site_id`),
+  KEY `idx_status` (`status`),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+CREATE TABLE `admin_photo_ratio` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `site_id` int UNSIGNED DEFAULT '777' COMMENT 'ID сайта',
+  `text_type` tinyint UNSIGNED NOT NULL COMMENT 'Тип текста',
+  `ratio1` smallint UNSIGNED DEFAULT '5625' COMMENT 'Соотношение 1',
+  `ratio2` smallint UNSIGNED DEFAULT '7500' COMMENT 'Соотношение 2',
+  `ratio3` smallint UNSIGNED DEFAULT '10000' COMMENT 'Соотношение 3',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_site_text_type` (`site_id`, `text_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `admin_photo_sizes` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `site_id` int UNSIGNED DEFAULT '777' COMMENT 'ID сайта',
+  `text_type` tinyint UNSIGNED NOT NULL COMMENT 'Тип текста',
+  `width` smallint UNSIGNED DEFAULT '1320' COMMENT 'Ширина',
+  `height` smallint UNSIGNED DEFAULT '742' COMMENT 'Высота',
+  `watermark` tinyint UNSIGNED DEFAULT '8' COMMENT 'Watermark',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_site_text_type` (`site_id`, `text_type`),
+  CONSTRAINT `chk_watermark_values` CHECK (`watermark` IN (0, 1, 2))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `auth_assignments` (
+  `item_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` int UNSIGNED NOT NULL DEFAULT UNIX_TIMESTAMP() COMMENT 'Время создания',
+  PRIMARY KEY (`item_name`, `user_id`), -- уникальная пара
+  KEY `idx_user_id` (`user_id`) -- индекс для ускорения поиска по user_id
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `auth_items` (
+  `name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `type` smallint NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `rule_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `data` blob,
+  `created_at` int UNSIGNED NOT NULL DEFAULT UNIX_TIMESTAMP() COMMENT 'Время создания',
+  `updated_at` int UNSIGNED DEFAULT NULL ON UPDATE UNIX_TIMESTAMP()  'Время обновления',
+  PRIMARY KEY (`name`),
+  KEY `idx_rule_name` (`rule_name`) -- индекс для поиска по rule_name
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `auth_item_children` (
+  `parent` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `child` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`parent`, `child`), -- уникальная пара
+  KEY `idx_child` (`child`) -- индекс для child
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `auth_rules` (
+  `name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `data` blob,
+  `created_at` int UNSIGNED NOT NULL DEFAULT UNIX_TIMESTAMP() COMMENT 'Время создания',
+  `updated_at` int UNSIGNED DEFAULT NULL ON UPDATE UNIX_TIMESTAMP()  'Время обновления',
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `oauth_access_tokens` (
+  `access_token` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `client_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` int UNSIGNED NOT NULL COMMENT 'ID пользователя',
+  `expires` int UNSIGNED NOT NULL COMMENT 'Unix time',
+  `scope` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`access_token`),
+  KEY `idx_expires` (`expires`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+--
+-- Структура таблицы `oauth_authorization_codes`
+--
+
+CREATE TABLE `oauth_authorization_codes` (
+  `authorization_code` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `client_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` int UNSIGNED NOT NULL COMMENT 'ID пользователя',
+  `redirect_uri` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `expires` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `scope` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oauth_clients`
+--
+
+CREATE TABLE `oauth_clients` (
+  `client_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `client_secret` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `redirect_uri` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `grant_types` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `scope` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `user_id` int UNSIGNED NOT NULL COMMENT 'ID пользователя'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oauth_jwt`
+--
+
+CREATE TABLE `oauth_jwt` (
+  `client_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `subject` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `public_key` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oauth_public_keys`
+--
+
+CREATE TABLE `oauth_public_keys` (
+  `client_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `public_key` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `private_key` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `encryption_algorithm` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'RS256'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oauth_refresh_tokens`
+--
+
+CREATE TABLE `oauth_refresh_tokens` (
+  `refresh_token` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `client_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` int UNSIGNED NOT NULL COMMENT 'ID пользователя',
+  `expires` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `scope` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oauth_scopes`
+--
+
+CREATE TABLE `oauth_scopes` (
+  `scope` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `is_default` mediumint NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `oauth_users` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Хэш пароля',
+  `first_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `last_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+CREATE TABLE `q_author_types` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `name` varchar(31) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Название',
+  `description` varchar(1023) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Описание',
+  `lft` smallint UNSIGNED NOT NULL COMMENT 'Поле LFT',
+  `rgt` smallint UNSIGNED NOT NULL COMMENT 'Поле RGT',
+  `depth` smallint UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Глубина',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата создания',
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Дата обновления',
+  `is_active` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Статус активности',
+  PRIMARY KEY (`id`),
+  KEY `idx_tree` (`lft`, `rgt`, `depth`),
+  KEY `idx_name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `q_contact` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `site_id` int UNSIGNED DEFAULT '777' COMMENT 'ID сайта',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Название организации',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'Описание организации',
+  `website` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Веб-сайт организации',
+  `address` json DEFAULT NULL COMMENT 'Адрес организации в формате Schema.org PostalAddress',
+  `email` varchar(63) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Основной email',
+  `zakaz_mail` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Email для заказов',
+  `phones` json DEFAULT NULL COMMENT 'Массив телефонов организации',
+  `location` point NOT NULL COMMENT 'Геокоординаты организации (для карт и Schema.org)',
+  `scale` int UNSIGNED DEFAULT '10' COMMENT 'Масштаб карты по умолчанию',
+  `analytics` json DEFAULT NULL COMMENT 'Настройки аналитики (Yandex, Google и др.)',
+  `social_networks` json DEFAULT NULL COMMENT 'Ссылки на социальные сети',
+  `messengers` json DEFAULT NULL COMMENT 'Контакты в мессенджерах',
+  `work_hours` json DEFAULT NULL COMMENT 'Часы работы в формате Schema.org OpeningHoursSpecification',
+  `money` json DEFAULT NULL COMMENT 'ID кошелька',
+  `languages` json DEFAULT NULL COMMENT 'Доступные языки обслуживания',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Время создания',
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Время обновления',
+  `is_active` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Статус активности',
+  PRIMARY KEY (`id`),
+  KEY `idx_site` (`site_id`),
+  KEY `idx_name` (`name`),
+  KEY `idx_email` (`email`),
+  SPATIAL KEY `idx_location` (`location`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `q_content` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `site_id` int UNSIGNED DEFAULT '777' COMMENT 'ID cайта',
+  `site_mode` mediumint UNSIGNED DEFAULT '777' COMMENT 'Тип сайта',
+  `text_type` tinyint UNSIGNED DEFAULT '1' COMMENT 'Тип текста',
+  `parent_id` int UNSIGNED DEFAULT '1' COMMENT 'ID текста',
+  `name` varchar(63) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Название',
+  `title` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Полное название',
+  `description` varchar(511) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Описание',
+  `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'Текст',
+  `url` varchar(511) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Ссылка',
+  `picture_url` varchar(511) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Изображение',
+  `view_count` int UNSIGNED DEFAULT '0' COMMENT 'Число просмотров',
+  `comments_count` int UNSIGNED DEFAULT '0' COMMENT 'Число комментариев',
+  `status` tinyint UNSIGNED DEFAULT '1' COMMENT 'Статус',
+  `rating` tinyint UNSIGNED DEFAULT '1' COMMENT 'Рейтинг',
+  `created_at` int UNSIGNED NOT NULL DEFAULT UNIX_TIMESTAMP() COMMENT 'Время создания',
+  `updated_at` int UNSIGNED DEFAULT NULL ON UPDATE UNIX_TIMESTAMP() COMMENT 'Время обновления',
+  `property_id` int UNSIGNED DEFAULT NULL COMMENT 'ID прайс - листа',
+  `panel_id` int UNSIGNED DEFAULT NULL COMMENT 'ID панели',
+  PRIMARY KEY (`id`),
+  KEY `idx_content_lookup` (`text_type`, `parent_id`) COMMENT 'Основной индекс для поиска контента',
+  KEY `idx_site` (`site_id`, `site_mode`) COMMENT 'Индекс для фильтрации по сайту',
+  KEY `idx_status_rating` (`status`, `rating`) COMMENT 'Индекс для фильтрации по статусу и рейтингу',
+  KEY `idx_url` (`url`(191)) COMMENT 'Индекс для поиска по URL',
+  KEY `idx_dates` (`created_at`, `updated_at`) COMMENT 'Индекс для сортировки по датам',
+  FULLTEXT KEY `idx_fulltext` (`name`, `title`, `description`) COMMENT 'Полнотекстовый поиск'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Триггер для обновления счетчиков
+DELIMITER //
+CREATE TRIGGER `q_content_before_insert` BEFORE INSERT ON `q_content`
+FOR EACH ROW
+BEGIN
+    IF NEW.view_count IS NULL THEN
+        SET NEW.view_count = 0;
+    END IF;
+    IF NEW.comments_count IS NULL THEN
+        SET NEW.comments_count = 0;
+    END IF;
+END //
+DELIMITER ;
+
+
+CREATE TABLE `q_countries` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `code` smallint UNSIGNED DEFAULT NULL COMMENT 'Цифровой код страны',
+  `country_code` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'ISO 3166-1 alpha-2 код страны',
+  `name` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Название',
+  `time` int UNSIGNED DEFAULT NULL COMMENT 'Временная зона в секундах от UTC',
+  `sort` smallint UNSIGNED NOT NULL DEFAULT '999' COMMENT 'Порядок сортировки',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Время создания',
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Время обновления',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_country_code` (`country_code`),
+  UNIQUE KEY `idx_code` (`code`),
+  KEY `idx_sort` (`sort`),
+  KEY `idx_name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Добавляем базовые данные для примера
+INSERT INTO `q_countries` (`code`, `country_code`, `name`, `time`, `sort`) VALUES
+(643, 'RU', 'Россия', 10800, 1),
+(112, 'BY', 'Беларусь', 10800, 2),
+(398, 'KZ', 'Казахстан', 21600, 3);
+
+CREATE TABLE `q_period` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `name` varchar(31) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Название',
+  `description` varchar(1023) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Описание',
+  `timing` int UNSIGNED NOT NULL COMMENT 'Время периода в секундах',
+  `is_active` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Статус активности',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_name` (`name`),
+  KEY `idx_timing` (`timing`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `q_properties` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `site_id` int UNSIGNED DEFAULT '777' COMMENT 'ID сайта',
+  `product_id` int UNSIGNED NOT NULL COMMENT 'ID продукта',
+  `modification_id` int UNSIGNED DEFAULT NULL COMMENT 'ID модификации',
+  `code` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Артикул',
+  `price1` decimal(11,2) DEFAULT NULL COMMENT 'Основная цена',
+  `price2` decimal(11,2) DEFAULT NULL COMMENT 'Оптовая цена',
+  `price3` decimal(11,2) DEFAULT NULL COMMENT 'Дилерская цена',
+  `price4` json DEFAULT NULL COMMENT 'Дополнительные цены',
+  `weight` float DEFAULT '777' COMMENT 'Вес',
+  `stock` mediumint UNSIGNED DEFAULT NULL COMMENT 'Остаток на складе',
+  `quantity` int UNSIGNED DEFAULT '777' COMMENT 'Количество',
+  `score` mediumint UNSIGNED DEFAULT '777' COMMENT 'Баллы',
+  `discount` mediumint UNSIGNED DEFAULT NULL COMMENT 'Скидка',
+  `period` mediumint UNSIGNED DEFAULT '777' COMMENT 'Период оплаты',
+  `description` varchar(1023) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Описание',
+  `updated_at` int UNSIGNED NOT NULL DEFAULT UNIX_TIMESTAMP() COMMENT 'Время обновления',
+  `created_at` int UNSIGNED NOT NULL DEFAULT UNIX_TIMESTAMP() COMMENT 'Время создания',
+  `is_active` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Статус активности',
+  PRIMARY KEY (`id`),
+  KEY `idx_product` (`product_id`, `modification_id`),
+  KEY `idx_site` (`site_id`),
+  KEY `idx_code` (`code`),
+  KEY `idx_stock` (`stock`, `quantity`),
+  KEY `idx_period` (`period`),
+  CONSTRAINT `fk_properties_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `q_site_modes` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID записи',
+  `name` varchar(31) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Название',
+  `description` varchar(1023) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Описание',
+  `tree` int UNSIGNED DEFAULT '777' COMMENT 'Дерево',
+  `lft` smallint UNSIGNED DEFAULT '1' COMMENT 'Поле LFT',
+  `rgt` smallint UNSIGNED DEFAULT '2' COMMENT 'Поле RGT',
+  `depth` smallint UNSIGNED DEFAULT '0' COMMENT 'Глубина',
+  `is_active` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Статус активности',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Время создания',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_name` (`name`),
+  KEY `idx_tree_left_right` (`tree`, `lft`, `rgt`),
+  KEY `idx_active` (`is_active`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####################################
+
+ALTER TABLE `q_information`
+  ADD CONSTRAINT `fk_qinfo_site`
+    FOREIGN KEY (`site_id`) REFERENCES `sites` (`id`),
+  ADD CONSTRAINT `fk_qinfo_user`
+    FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `fk_qinfo_tariff`
+    FOREIGN KEY (`tariff_id`) REFERENCES `tariffs` (`id`),
+  ADD CONSTRAINT `fk_qinfo_content`
+    FOREIGN KEY (`content_id`) REFERENCES `contents` (`id`);
+
+ALTER TABLE `q_information`
+  ADD CONSTRAINT `chk_status` CHECK (`status` BETWEEN 1 AND 10),
+  ADD CONSTRAINT `chk_color` CHECK (`color` BETWEEN 1 AND 10),
+  ADD CONSTRAINT `chk_site_mode` CHECK (`site_mode` BETWEEN 1 AND 10),
+  ADD CONSTRAINT `chk_app_type` CHECK (`app_type` BETWEEN 1 AND 10),
+  ADD CONSTRAINT `chk_nested_set` CHECK (`lft` < `rgt`);
+
+INSERT INTO `q_information` (`id`, `site_id`, `user_id`, `site_mode`, `tariff_id`, `name`, `path`, `advert`, `photo`, `color`, `status`, `rating`, `tree`, `lft`, `rgt`, `depth`, `title`, `description`, `text`, `created_at`, `updated_at`, `content_id`, `count_stock`, `app_type`) VALUES
+(777, 777, 1, 1, 0, 'shopnseo.ru', '/var/www/server_3/shopnseo_ru', '<p>Платформа \"Shop\'n\'SEO\" сотрудничает с\r\nхостингерами, веб-студиями, веб-разработчиками, веб-дизайнерами и копирайтерами.</p>', 'main.jpg', 0, 3, NULL, 3, 1, 777, 0, 'Shop-n-SEO. Программное обеспечение для SEO-ориентированных проектов', '<p>Платформа Shop &amp; SEO предлагает программное обеспечение для сайтов, осуществляющих продажи товаров и услуг и ориентированных на самостоятельное продвижение.</p>', '<p class=\"\">Платформа &laquo;Shop\'n\'SEO&raquo;&lrm; предлагает программное обеспечение для сайтов, осуществляющих продажи товаров и услуг и ориентированных на самостоятельное продвижение.</p>\r\n<p class=\"\">Платформа &laquo;Shop\'n\'SEO&raquo;&lrm; сотрудничает с хостингерами, веб-студиями, веб-разработчиками, веб-дизайнерами и копирайтерами.&nbsp;</p>', 0, 1729771623, 748, 0, 3);
+
+
+######################################################################################
+
+ALTER TABLE `users`
+  ADD CONSTRAINT`fk_users_site` FOREIGN KEY (`site_id`) REFERENCES `q_information` (`site_id`),
+  ADD CONSTRAINT `chk_status_valid` CHECK (`status` IN (0, 5, 10)),
+ ADD CONSTRAINT `chk_email_format` CHECK (`email` REGEXP '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
+
+
+
+INSERT INTO `admin_photo_ratio` (`id`, `site_id`, `text_type`, `ratio1`, `ratio2`, `ratio3`) VALUES
+(1, 777, 1, 5625, 7500, 10000),
+(2, 777, 2, 5625, 7500, 10000),
+(3, 777, 3, 5625, 7500, 10000),
+(4, 777, 4, 5625, 7500, 10000),
+(5, 777, 5, 5625, 7500, 10000),
+(6, 777, 6, 5625, 7500, 10000),
+(7, 777, 7, 5625, 7500, 10000),
+(8, 777, 8, 5625, 7500, 10000),
+(9, 777, 9, 5625, 7500, 10000),
+(10, 777, 10, 5625, 7500, 10000),
+(11, 777, 11, 10000, 10000, 10000),
+(12, 777, 12, 5625, 7500, 10000),
+(13, 777, 13, 5625, 7500, 10000),
+(14, 777, 14, 5625, 7500, 10000),
+(15, 777, 15, 10000, 10000, 10000),
+(16, 777, 16, 10000, 10000, 10000),
+(17, 777, 17, 5625, 7500, 10000),
+(18, 777, 18, 5625, 7500, 10000),
+(19, 777, 19, 10000, 10000, 10000),
+(20, 777, 20, 5625, 7500, 10000),
+(21, 777, 21, 5625, 7500, 10000),
+(22, 777, 22, 5625, 7500, 10000),
+(23, 777, 23, 10000, 10000, 10000),
+(24, 777, 24, 10000, 10000, 10000),
+(25, 777, 25, 10000, 10000, 10000),
+(26, 777, 26, 10000, 10000, 10000),
+(27, 777, 27, 10000, 10000, 10000),
+(28, 777, 28, 10000, 10000, 10000),
+(29, 777, 29, 10000, 10000, 10000),
+(30, 777, 30, 10000, 10000, 10000),
+(31, 777, 31, 5625, 7500, 10000),
+(32, 777, 32, 10000, 10000, 10000),
+(33, 777, 33, 10000, 10000, 10000),
+(34, 777, 34, 10000, 10000, 10000),
+(35, 777, 35, 10000, 10000, 10000),
+(36, 777, 36, 10000, 10000, 10000),
+(37, 777, 37, 10000, 10000, 10000),
+(38, 777, 38, 10000, 10000, 10000),
+(39, 777, 39, 10000, 10000, 10000),
+(40, 777, 40, 10000, 10000, 10000),
+(41, 777, 41, 5625, 7500, 10000),
+(42, 777, 42, 10000, 10000, 10000),
+(43, 777, 43, 10000, 10000, 10000),
+(44, 777, 44, 10000, 10000, 10000),
+(45, 777, 45, 10000, 10000, 10000),
+(46, 777, 46, 5625, 7500, 10000),
+(47, 777, 47, 5625, 7500, 10000),
+(48, 777, 48, 5625, 7500, 10000),
+(49, 777, 49, 5625, 7500, 10000),
+(50, 777, 50, 5625, 7500, 10000),
+(51, 777, 71, 5625, 7500, 10000),
+(52, 777, 72, 5625, 7500, 10000),
+(53, 777, 73, 10000, 10000, 10000),
+(54, 777, 74, 5625, 7500, 10000),
+(55, 777, 75, 5625, 7500, 10000),
+(56, 777, 76, 10000, 10000, 10000),
+(57, 777, 80, 5625, 7500, 10000),
+(58, 777, 81, 5625, 7500, 10000);
+
+
+
+--
+-- Дамп данных таблицы `admin_photo_sizes`
+--
+
+INSERT INTO `admin_photo_sizes` (`id`, `site_id`, `text_type`, `width`, `height`, `watermark`) VALUES
+(1, 777, 1, 1320, 742, 1),
+(2, 777, 2, 1320, 742, 1),
+(3, 777, 3, 1320, 742, 1),
+(4, 777, 4, 1320, 742, 1),
+(5, 777, 5, 1320, 742, 1),
+(6, 777, 6, 1320, 742, 1),
+(7, 777, 7, 1320, 742, 1),
+(8, 777, 8, 1320, 742, 1),
+(9, 777, 9, 1320, 742, 1),
+(10, 777, 10, 1320, 742, 1),
+(11, 777, 11, 660, 660, 0),
+(12, 777, 12, 1320, 742, 1),
+(13, 777, 13, 1320, 742, 1),
+(14, 777, 14, 1320, 742, 1),
+(15, 777, 15, 660, 660, 0),
+(16, 777, 16, 660, 660, 0),
+(17, 777, 17, 1320, 742, 1),
+(18, 777, 18, 1320, 742, 1),
+(19, 777, 19, 660, 660, 0),
+(20, 777, 20, 1320, 742, 1),
+(21, 777, 21, 1320, 742, 1),
+(22, 777, 22, 1320, 742, 1),
+(23, 777, 23, 660, 660, 0),
+(24, 777, 24, 660, 660, 0),
+(25, 777, 25, 660, 660, 0),
+(26, 777, 26, 660, 660, 0),
+(27, 777, 27, 660, 660, 0),
+(28, 777, 28, 660, 660, 0),
+(29, 777, 29, 660, 660, 0),
+(30, 777, 30, 660, 660, 0),
+(31, 777, 31, 1320, 742, 1),
+(32, 777, 32, 660, 660, 0),
+(33, 777, 33, 660, 660, 0),
+(34, 777, 34, 660, 660, 0),
+(35, 777, 35, 660, 660, 0),
+(36, 777, 36, 660, 660, 0),
+(37, 777, 37, 660, 660, 0),
+(38, 777, 38, 660, 660, 0),
+(39, 777, 39, 660, 660, 0),
+(40, 777, 40, 660, 660, 0),
+(41, 777, 41, 1320, 742, 1),
+(42, 777, 42, 660, 660, 0),
+(43, 777, 43, 660, 660, 0),
+(44, 777, 44, 660, 660, 0),
+(45, 777, 45, 660, 660, 0),
+(46, 777, 46, 1320, 742, 1),
+(47, 777, 47, 1320, 742, 1),
+(48, 777, 48, 1320, 742, 1),
+(49, 777, 49, 1320, 742, 1),
+(50, 777, 50, 1320, 742, 1),
+(51, 777, 71, 1320, 742, 1),
+(52, 777, 72, 1320, 742, 1),
+(53, 777, 73, 660, 660, 0),
+(54, 777, 74, 1320, 742, 1),
+(55, 777, 75, 1320, 742, 1),
+(56, 777, 76, 660, 660, 0),
+(57, 777, 80, 1320, 742, 1),
+(58, 777, 81, 1320, 742, 1);
+
+
+--
+-- Дамп данных таблицы `auth_assignments`
+--
+
+INSERT INTO `auth_assignments` (`item_name`, `user_id`, `created_at`) VALUES
+('superadmin', '1', 1),
+('superadmin', '2', 1);
+
+
+--
+-- Дамп данных таблицы `auth_items`
+--
+
+INSERT INTO `auth_items` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
+('admin', 1, 'admin', NULL, NULL, 1568227426, 1568227426),
+('author', 1, 'author', NULL, NULL, 1568227426, 1568227426),
+('createBlog', 2, 'Создание блога', NULL, NULL, 1568227426, 1568227426),
+('createBook', 2, 'Создание книги', NULL, NULL, 1568227426, 1568227426),
+('createPost', 2, 'Создание поста', NULL, NULL, 1568227426, 1568227426),
+('deleteBlog', 2, 'Удаление блога', NULL, NULL, 1568227426, 1568227426),
+('deleteBook', 2, 'Удаление книги', NULL, NULL, 1568227426, 1568227426),
+('deletePost', 2, 'Удаление поста', NULL, NULL, 1568227426, 1568227426),
+('editor', 1, 'editor', NULL, NULL, 1568227426, 1568227426),
+('superadmin', 1, 'Суперадминистратор', NULL, NULL, 1568227426, 1568227426),
+('updateBlog', 2, 'Редактирование блога', NULL, NULL, 1568227426, 1568227426),
+('updateBook', 2, 'Редактирование книги', NULL, NULL, 1568227426, 1568227426),
+('updatePost', 2, 'Редактирование поста', NULL, NULL, 1568227426, 1568227426),
+('user', 1, 'Пользователь', NULL, NULL, 1568227426, 1568227426),
+('webmaster', 1, 'webmaster', NULL, NULL, 1568227426, 1568227426),
+('writer', 1, 'writer', NULL, NULL, 1568227426, 1568227426);
+
+
+--
+-- Дамп данных таблицы `auth_item_children`
+--
+
+INSERT INTO `auth_item_children` (`parent`, `child`) VALUES
+('webmaster', 'admin'),
+('admin', 'editor'),
+('writer', 'user'),
+('superadmin', 'webmaster'),
+('editor', 'writer');
+
+INSERT INTO `q_author_types` (`id`, `name`, `description`, `lft`, `rgt`, `depth`) VALUES
+(1, 'Авторы Q', 'Литература Q', 1, 10, 0),
+(2, 'Литератор', 'Художественная литература', 2, 3, 1),
+(3, 'Технический писатель', 'Техническая литература', 4, 5, 1),
+(4, 'Репортер', 'Репортажная литература', 6, 7, 1),
+(5, 'Научный писатель', 'Научная, историческая и прочая фактографическая литература', 8, 9, 1);
+
+
+INSERT INTO `q_contact` (`id`, `site_id`, `name`, `description`, `website`, `address`, `email`, `zakaz_mail`, `phones`, `location`, `scale`, `analytics`, `social_networks`, `messengers`, `work_hours`, `money`, `languages`, `updated_at`) VALUES
+(777, 777, 'sv-partner.ru', '', 'sv-partner.ru', '{\"postalCode\": \"103000\", \"streetAddress\": \"Дорожная, 20\", \"addressCountry\": \"Россия\", \"addressLocality\": \"Москва\"}', 'info@sv-partner.ru', 'order@sv-partner.ru', '[{\"label\": \"офис\", \"number\": \"9771360225\"}, {\"label\": \"Склад\", \"number\": \"9771360226\"}]', 0x000000000101000000f300825a12da4b40ec55304b1ac54240, 12, '[{\"label\": \"yandex\", \"number\": \"123\"}]', '[{\"label\": \"Facebook\", \"number\": \"http://panel.asder.local/admin/contact/create\"}]', '[{\"label\": \"telegram\", \"number\": \"http://panel.asder.local/admin/contact/create\"}]', '{\"Friday\": {\"opens\": \"9:00\", \"closes\": \"18:00\", \"isOpen\": \"1\"}, \"Monday\": {\"opens\": \"9:00\", \"closes\": \"18:00\", \"isOpen\": \"1\"}, \"Sunday\": {\"opens\": \"\", \"closes\": \"\"}, \"Tuesday\": {\"opens\": \"9:00\", \"closes\": \"18:00\", \"isOpen\": \"1\"}, \"Saturday\": {\"opens\": \"\", \"closes\": \"\"}, \"Thursday\": {\"opens\": \"9:00\", \"closes\": \"18:00\", \"isOpen\": \"1\"}, \"Wednesday\": {\"opens\": \"9:00\", \"closes\": \"18:00\", \"isOpen\": \"1\"}}', '[{\"label\": \"youmoney\", \"number\": \"477367\"}]', '[{\"label\": \"russian\", \"number\": \"русский\"}]', 1730745635);
+
+
+
+INSERT INTO `q_countries` (`id`, `code`, `country_code`, `name`, `time`, `sort`) VALUES
+(1, 93, 'AF', 'Afghanistan', 5, 46),
+(2, 358, 'AX', 'Aland Islands', 2, 159),
+(3, 355, 'AL', 'Albania', 1, 47),
+(4, 213, 'DZ', 'Algeria', 1, 48),
+(5, 1684, 'AS', 'American Samoa', -11, 160),
+(6, 376, 'AD', 'Andorra', 1, 49),
+(7, 244, 'AO', 'Angola', 1, 50),
+(8, 1264, 'AI', 'Anguilla', -4, 161),
+(9, 672, 'AQ', 'Antarctica', 12, 162),
+(10, 1268, 'AG', 'Antigua and Barbuda', -4, 163),
+(11, 54, 'AR', 'Argentina', -3, 51),
+(12, 374, 'AM', 'Armenia', 4, 52),
+(13, 297, 'AW', 'Aruba', -4, 164),
+(14, 61, 'AU', 'Australia', 10, 19),
+(15, 43, 'AT', 'Austria', 1, 34),
+(16, 994, 'AZ', 'Azerbaijan', 4, 53),
+(17, 1242, 'BS', 'Bahamas', -5, 165),
+(18, 973, 'BH', 'Bahrain', 3, 54),
+(19, 880, 'BD', 'Bangladesh', 6, 55),
+(20, 1246, 'BB', 'Barbados', -4, 166),
+(21, 375, 'BY', 'Belarus', 3, 3),
+(22, 32, 'BE', 'Belgium', 1, 36),
+(23, 501, 'BZ', 'Belize', -6, 167),
+(24, 229, 'BJ', 'Benin', 1, 168),
+(25, 1441, 'BM', 'Bermuda', -4, 169),
+(26, 975, 'BT', 'Bhutan', 6, 170),
+(27, 591, 'BO', 'Bolivia', -4, 56),
+(28, 599, 'BQ', 'Bonaire, Sint Eustatius and Saba', -4, 171),
+(29, 387, 'BA', 'Bosnia and Herzegovina', 1, 57),
+(30, 267, 'BW', 'Botswana', 2, 172),
+(31, 55, 'BV', 'Bouvet Island', 2, 173),
+(32, 55, 'BR', 'Brazil', -3, 58),
+(33, 246, 'IO', 'British Indian Ocean Territory', 6, 174),
+(34, 673, 'BN', 'Brunei Darussalam', 8, 175),
+(35, 359, 'BG', 'Bulgaria', 2, 27),
+(36, 226, 'BF', 'Burkina Faso', 0, 59),
+(37, 257, 'BI', 'Burundi', 2, 176),
+(38, 855, 'KH', 'Cambodia', 7, 60),
+(39, 237, 'CM', 'Cameroon', 1, 61),
+(40, 1, 'CA', 'Canada', 5, 20),
+(41, 238, 'CV', 'Cape Verde', -1, 177),
+(42, 1345, 'KY', 'Cayman Islands', -5, 178),
+(43, 236, 'CF', 'Central African Republic', 1, 179),
+(44, 235, 'TD', 'Chad', 1, 180),
+(45, 56, 'CL', 'Chile', -4, 62),
+(46, 86, 'CN', 'China', 8, 21),
+(47, 61, 'CX', 'Christmas Island', 7, 181),
+(48, 672, 'CC', 'Cocos (Keeling) Islands', 6, 182),
+(49, 57, 'CO', 'Colombia', -5, 63),
+(50, 269, 'KM', 'Comoros', 3, 183),
+(51, 242, 'CG', 'Congo', 1, 184),
+(52, 242, 'CD', 'Congo, Democratic Republic of the Congo', 1, 185),
+(53, 682, 'CK', 'Cook Islands', -10, 186),
+(54, 506, 'CR', 'Costa Rica', -6, 64),
+(55, 225, 'CI', 'Cote D\'Ivoire', 0, 187),
+(56, 385, 'HR', 'Croatia', 1, 65),
+(57, 53, 'CU', 'Cuba', -5, 66),
+(58, 599, 'CW', 'Curacao', -4, 188),
+(59, 357, 'CY', 'Cyprus', 2, 67),
+(60, 420, 'CZ', 'Czech Republic', 1, 24),
+(61, 45, 'DK', 'Denmark', 1, 31),
+(62, 253, 'DJ', 'Djibouti', 3, 189),
+(63, 1767, 'DM', 'Dominica', -4, 190),
+(64, 1809, 'DO', 'Dominican Republic', -4, 68),
+(65, 593, 'EC', 'Ecuador', -5, 69),
+(66, 20, 'EG', 'Egypt', 2, 70),
+(67, 503, 'SV', 'El Salvador', -6, 71),
+(68, 240, 'GQ', 'Equatorial Guinea', 1, 191),
+(69, 291, 'ER', 'Eritrea', 3, 192),
+(70, 372, 'EE', 'Estonia', 2, 6),
+(71, 251, 'ET', 'Ethiopia', 3, 72),
+(72, 500, 'FK', 'Falkland Islands (Malvinas)', -3, 193),
+(73, 298, 'FO', 'Faroe Islands', 0, 194),
+(74, 679, 'FJ', 'Fiji', 12, 195),
+(75, 358, 'FI', 'Finland', 2, 22),
+(76, 33, 'FR', 'France', 1, 17),
+(77, 594, 'GF', 'French Guiana', -3, 196),
+(78, 689, 'PF', 'French Polynesia', -10, 197),
+(79, 262, 'TF', 'French Southern Territories', 5, 198),
+(80, 241, 'GA', 'Gabon', 1, 73),
+(81, 220, 'GM', 'Gambia', 0, 74),
+(82, 995, 'GE', 'Georgia', 4, 75),
+(83, 49, 'DE', 'Germany', 1, 13),
+(84, 233, 'GH', 'Ghana', 0, 76),
+(85, 350, 'GI', 'Gibraltar', 1, 199),
+(86, 30, 'GR', 'Greece', 2, 38),
+(87, 299, 'GL', 'Greenland', -3, 200),
+(88, 1473, 'GD', 'Grenada', -4, 201),
+(89, 590, 'GP', 'Guadeloupe', -4, 202),
+(90, 1671, 'GU', 'Guam', 10, 203),
+(91, 502, 'GT', 'Guatemala', -6, 77),
+(92, 44, 'GG', 'Guernsey', 0, 204),
+(93, 224, 'GN', 'Guinea', 0, 78),
+(94, 245, 'GW', 'Guinea-Bissau', 0, 205),
+(95, 592, 'GY', 'Guyana', -4, 79),
+(96, 509, 'HT', 'Haiti', -5, 80),
+(97, 0, 'HM', 'Heard Island and Mcdonald Islands', 5, 206),
+(98, 39, 'VA', 'Holy See (Vatican City State)', 1, 207),
+(99, 504, 'HN', 'Honduras', -6, 81),
+(100, 852, 'HK', 'Hong Kong', 8, 43),
+(101, 36, 'HU', 'Hungary', 2, 26),
+(102, 354, 'IS', 'Iceland', 1, 208),
+(103, 91, 'IN', 'India', 0, 82),
+(104, 62, 'ID', 'Indonesia', 5, 83),
+(105, 98, 'IR', 'Iran, Islamic Republic of', 7, 84),
+(106, 964, 'IQ', 'Iraq', 3, 85),
+(107, 353, 'IE', 'Ireland', 3, 39),
+(108, 44, 'IM', 'Isle of Man', 0, 209),
+(109, 972, 'IL', 'Israel', 0, 15),
+(110, 39, 'IT', 'Italy', 2, 30),
+(111, 1876, 'JM', 'Jamaica', 1, 86),
+(112, 81, 'JP', 'Japan', -5, 41),
+(113, 44, 'JE', 'Jersey', 9, 210),
+(114, 962, 'JO', 'Jordan', 0, 87),
+(115, 997, 'KZ', 'Kazakhstan', 2, 8),
+(116, 254, 'KE', 'Kenya', 6, 88),
+(117, 686, 'KI', 'Kiribati', 3, 211),
+(118, 850, 'KP', 'Korea, Democratic People\'s Republic of', 12, 89),
+(119, 82, 'KR', 'Korea, Republic of', 9, 45),
+(120, 381, 'XK', 'Kosovo', 9, 90),
+(121, 965, 'KW', 'Kuwait', 3, 91),
+(122, 996, 'KG', 'Kyrgyzstan', 6, 10),
+(123, 856, 'LA', 'Lao People\'s Democratic Republic', 7, 92),
+(124, 371, 'LV', 'Latvia', 2, 5),
+(125, 961, 'LB', 'Lebanon', 3, 93),
+(126, 266, 'LS', 'Lesotho', 2, 94),
+(127, 231, 'LR', 'Liberia', 0, 95),
+(128, 218, 'LY', 'Libyan Arab Jamahiriya', 2, 96),
+(129, 423, 'LI', 'Liechtenstein', 1, 212),
+(130, 370, 'LT', 'Lithuania', 2, 7),
+(131, 352, 'LU', 'Luxembourg', 1, 213),
+(132, 853, 'MO', 'Macao', 8, 214),
+(133, 389, 'MK', 'Macedonia, the Former Yugoslav Republic of', 1, 97),
+(134, 261, 'MG', 'Madagascar', 3, 98),
+(135, 265, 'MW', 'Malawi', 2, 99),
+(136, 60, 'MY', 'Malaysia', 8, 100),
+(137, 960, 'MV', 'Maldives', 5, 101),
+(138, 223, 'ML', 'Mali', 0, 102),
+(139, 356, 'MT', 'Malta', 1, 103),
+(140, 692, 'MH', 'Marshall Islands', 12, 215),
+(141, 596, 'MQ', 'Martinique', -4, 216),
+(142, 222, 'MR', 'Mauritania', 0, 104),
+(143, 230, 'MU', 'Mauritius', 4, 105),
+(144, 269, 'YT', 'Mayotte', 3, 217),
+(145, 52, 'MX', 'Mexico', -6, 106),
+(146, 691, 'FM', 'Micronesia, Federated States of', 11, 218),
+(147, 373, 'MD', 'Moldova, Republic of', 2, 4),
+(148, 377, 'MC', 'Monaco', 1, 107),
+(149, 976, 'MN', 'Mongolia', 8, 108),
+(150, 382, 'ME', 'Montenegro', 1, 109),
+(151, 1664, 'MS', 'Montserrat', -4, 219),
+(152, 212, 'MA', 'Morocco', 1, 110),
+(153, 258, 'MZ', 'Mozambique', 2, 111),
+(154, 95, 'MM', 'Myanmar', 6, 112),
+(155, 264, 'NA', 'Namibia', 2, 113),
+(156, 674, 'NR', 'Nauru', 12, 220),
+(157, 977, 'NP', 'Nepal', 5, 114),
+(158, 31, 'NL', 'Netherlands', 1, 16),
+(159, 599, 'AN', 'Netherlands Antilles', -4, 221),
+(160, 687, 'NC', 'New Caledonia', 11, 222),
+(161, 64, 'NZ', 'New Zealand', 12, 40),
+(162, 505, 'NI', 'Nicaragua', -6, 115),
+(163, 227, 'NE', 'Niger', 1, 116),
+(164, 234, 'NG', 'Nigeria', 1, 117),
+(165, 683, 'NU', 'Niue', -11, 223),
+(166, 672, 'NF', 'Norfolk Island', 11, 224),
+(167, 1670, 'MP', 'Northern Mariana Islands', 10, 225),
+(168, 47, 'NO', 'Norway', 1, 33),
+(169, 968, 'OM', 'Oman', 4, 118),
+(170, 92, 'PK', 'Pakistan', 5, 119),
+(171, 680, 'PW', 'Palau', 9, 226),
+(172, 970, 'PS', 'Palestinian Territory, Occupied', 2, 120),
+(173, 507, 'PA', 'Panama', -5, 121),
+(174, 675, 'PG', 'Papua New Guinea', 10, 122),
+(175, 595, 'PY', 'Paraguay', -4, 123),
+(176, 51, 'PE', 'Peru', -5, 124),
+(177, 63, 'PH', 'Philippines', 8, 125),
+(178, 64, 'PN', 'Pitcairn', -8, 227),
+(179, 48, 'PL', 'Poland', 1, 23),
+(180, 351, 'PT', 'Portugal', 0, 37),
+(181, 1787, 'PR', 'Puerto Rico', -4, 228),
+(182, 974, 'QA', 'Qatar', 3, 126),
+(183, 262, 'RE', 'Reunion', 4, 229),
+(184, 40, 'RO', 'Romania', 2, 28),
+(185, 7, 'RU', 'Russian Federation', 3, 1),
+(186, 250, 'RW', 'Rwanda', 2, 127),
+(187, 590, 'BL', 'Saint Barthelemy', -4, 230),
+(188, 290, 'SH', 'Saint Helena', 0, 231),
+(189, 1869, 'KN', 'Saint Kitts and Nevis', -4, 232),
+(190, 1758, 'LC', 'Saint Lucia', -4, 233),
+(191, 590, 'MF', 'Saint Martin', -4, 234),
+(192, 508, 'PM', 'Saint Pierre and Miquelon', -3, 235),
+(193, 1784, 'VC', 'Saint Vincent and the Grenadines', -4, 236),
+(194, 684, 'WS', 'Samoa', 13, 237),
+(195, 378, 'SM', 'San Marino', 1, 128),
+(196, 239, 'ST', 'Sao Tome and Principe', 0, 238),
+(197, 966, 'SA', 'Saudi Arabia', 3, 129),
+(198, 221, 'SN', 'Senegal', 0, 130),
+(199, 381, 'RS', 'Serbia', 1, 131),
+(200, 381, 'CS', 'Serbia and Montenegro', 1, 239),
+(201, 248, 'SC', 'Seychelles', 4, 240),
+(202, 232, 'SL', 'Sierra Leone', 0, 132),
+(203, 65, 'SG', 'Singapore', 8, 42),
+(204, 1, 'SX', 'Sint Maarten', -4, 241),
+(205, 421, 'SK', 'Slovakia', 1, 25),
+(206, 386, 'SI', 'Slovenia', 1, 133),
+(207, 677, 'SB', 'Solomon Islands', 11, 242),
+(208, 252, 'SO', 'Somalia', 3, 134),
+(209, 27, 'ZA', 'South Africa', 2, 135),
+(210, 500, 'GS', 'South Georgia and the South Sandwich Islands', -2, 243),
+(211, 211, 'SS', 'South Sudan', 3, 136),
+(212, 34, 'ES', 'Spain', 1, 29),
+(213, 94, 'LK', 'Sri Lanka', 5, 137),
+(214, 249, 'SD', 'Sudan', 2, 138),
+(215, 597, 'SR', 'Suriname', -3, 139),
+(216, 47, 'SJ', 'Svalbard and Jan Mayen', 1, 244),
+(217, 268, 'SZ', 'Swaziland', 2, 140),
+(218, 46, 'SE', 'Sweden', 1, 32),
+(219, 41, 'CH', 'Switzerland', 1, 35),
+(220, 963, 'SY', 'Syrian Arab Republic', 2, 141),
+(221, 886, 'TW', 'Taiwan, Province of China', 8, 44),
+(222, 992, 'TJ', 'Tajikistan', 5, 11),
+(223, 255, 'TZ', 'Tanzania, United Republic of', 3, 142),
+(224, 66, 'TH', 'Thailand', 7, 143),
+(225, 670, 'TL', 'Timor-Leste', 9, 144),
+(226, 228, 'TG', 'Togo', 0, 145),
+(227, 690, 'TK', 'Tokelau', -10, 245),
+(228, 676, 'TO', 'Tonga', 13, 146),
+(229, 1868, 'TT', 'Trinidad and Tobago', -4, 147),
+(230, 216, 'TN', 'Tunisia', 1, 148),
+(231, 90, 'TR', 'Turkey', 3, 149),
+(232, 7370, 'TM', 'Turkmenistan', 5, 12),
+(233, 1649, 'TC', 'Turks and Caicos Islands', -4, 246),
+(234, 688, 'TV', 'Tuvalu', 12, 247),
+(235, 256, 'UG', 'Uganda', 3, 150),
+(236, 380, 'UA', 'Ukraine', 2, 2),
+(237, 971, 'AE', 'United Arab Emirates', 4, 151),
+(238, 44, 'GB', 'United Kingdom', 0, 18),
+(239, 1, 'US', 'United States', -5, 14),
+(240, 1, 'UM', 'United States Minor Outlying Islands', -11, 248),
+(241, 598, 'UY', 'Uruguay', -3, 152),
+(242, 998, 'UZ', 'Uzbekistan', 5, 9),
+(243, 678, 'VU', 'Vanuatu', 11, 153),
+(244, 58, 'VE', 'Venezuela', -4, 154),
+(245, 84, 'VN', 'Viet Nam', 7, 155),
+(246, 1284, 'VG', 'Virgin Islands, British', -4, 249),
+(247, 1340, 'VI', 'Virgin Islands, U.s.', -4, 250),
+(248, 681, 'WF', 'Wallis and Futuna', 12, 251),
+(249, 212, 'EH', 'Western Sahara', 1, 252),
+(250, 967, 'YE', 'Yemen', 3, 156),
+(251, 260, 'ZM', 'Zambia', 2, 157),
+(252, 263, 'ZW', 'Zimbabwe', 2, 158);
+
+
+-- Дамп данных для различных периодов оплаты
+INSERT INTO `q_period` (`id`, `name`, `description`, `timing`) VALUES
+(1, 'без периода', 'Оплата производится разово', 0),
+(2, 'Ежемесячно', 'Оплата производится ежемесячно', 2628000),
+(3, 'Еженедельно', 'Оплата производится каждую неделю', 604800),
+(4, 'Ежедневно', 'Оплата производится каждый день', 86400),
+(5, 'Ежеквартально', 'Оплата производится раз в квартал', 7884000),
+(6, 'Раз в полгода', 'Оплата производится раз в 6 месяцев', 15768000),
+(7, 'Ежегодно', 'Оплата производится раз в год', 31536000),
+(8, 'Раз в 2 года', 'Оплата производится раз в 2 года', 63072000),
+(9, 'Каждые 3 часа', 'Оплата производится каждые 3 часа', 10800),
+(10, 'Каждые 6 часов', 'Оплата производится каждые 6 часов', 21600),
+(11, 'Каждые 12 часов', 'Оплата производится каждые 12 часов', 43200),
+(12, 'Раз в 2 недели', 'Оплата производится раз в 2 недели', 1209600);
+
+-- Расчет значений timing:
+-- 1 час = 3600 секунд
+-- 1 день = 86400 секунд
+-- 1 неделя = 604800 секунд
+-- 1 месяц (средний) = 2628000 секунд
+-- 1 квартал = 7884000 секунд
+-- 1 год = 31536000 секунд
+
+
+-- Пример структуры JSON для поля price4
+INSERT INTO `q_properties`
+(`site_id`, `product_id`, `code`, `price1`, `price2`, `price3`, `price4`)
+VALUES
+(777, 1, 'PROD001', 1000.00, 900.00, 800.00,
+'{
+  "special_price": 950.00,
+  "bulk_prices": {
+    "10+": 850.00,
+    "20+": 800.00,
+    "50+": 750.00
+  },
+  "vip_price": 700.00,
+  "seasonal_prices": {
+    "summer": 980.00,
+    "winter": 1020.00
+  },
+  "currency_prices": {
+    "USD": 15.99,
+    "EUR": 14.99
+  }
+}');
+
+-- Пример добавления записи с базовыми ценами
+INSERT INTO `q_properties`
+(`site_id`, `product_id`, `code`, `price1`, `price2`, `price3`, `weight`, `stock`, `quantity`)
+VALUES
+(777, 2, 'PROD002', 500.00, 450.00, 400.00, 777, 100, 777);
+
+-- Создание индекса для поиска по ценам в JSON
+ALTER TABLE `q_properties` ADD INDEX `idx_price4` ((CAST(JSON_EXTRACT(`price4`, '$.special_price') AS DECIMAL(11,2))));
+
+
+
+-- Дамп данных таблицы q_site_modes с правильной структурой дерева
+INSERT INTO `q_site_modes`
+(`id`, `name`, `description`, `tree`, `lft`, `rgt`, `depth`) VALUES
+(99, 'server', 'server', 1, 1, 22, 0),
+(1, 'Интернет-магазин', 'Продажа товаров, предложение услуг и все, что связано с понятием электронная коммерция.', 1, 2, 7, 1),
+(11, 'Услуги', 'Услуги', 1, 3, 4, 2),
+(12, 'Недвижимость', 'Недвижимость', 1, 5, 6, 2),
+(2, 'Издание', 'Интернет-ресурсы с материалами на заданную тему и просто без темы. Здесь общаются коллеги, единомышленники, друзья.', 1, 8, 9, 1),
+(3, 'Книги', 'Литературные сайты. Серьезное и несерьезное чтение в сети.', 1, 10, 13, 1),
+(31, 'Книга', 'Книга', 1, 11, 12, 2),
+(4, 'Блог', 'Блоги.', 1, 14, 17, 1),
+(41, 'Блог', 'Блог', 1, 15, 16, 2),
+(5, 'Реклама', 'Рекламные агентства, компании и просто активисты из мира СЕО, пиара и продвижения.', 1, 18, 19, 1),
+(6, 'Производитель', 'Производство товаров', 1, 20, 21, 1);
+
+-- Вспомогательные запросы для работы с деревом
+-- Получение всех потомков узла
+SELECT node.*
+FROM q_site_modes AS node,
+     q_site_modes AS parent
+WHERE node.lft BETWEEN parent.lft AND parent.rgt
+    AND parent.id = 1
+ORDER BY node.lft;
+
+-- Получение пути к узлу
+SELECT parent.*
+FROM q_site_modes AS node,
+     q_site_modes AS parent
+WHERE node.lft BETWEEN parent.lft AND parent.rgt
+    AND node.id = 31
+ORDER BY parent.lft;
+
+-- Получение количества потомков
+SELECT COUNT(*)
+FROM q_site_modes AS node,
+     q_site_modes AS parent
+WHERE node.lft BETWEEN parent.lft AND parent.rgt
+    AND parent.id = 1;
