@@ -36,7 +36,7 @@
                 Блок с баннером
             </div>
             <div class="card-body">
-                <?= Html::img(Url::to('@static', true).'/cache/site/110-110-kod-biznesa-rf_col-12.webp-ru_col-3.webp', ['alt' => 'logo',
+                <?= Html::img(Url::to('@static', true).'/cache/14/110-kod-biznesa-rf_col-3.webp', ['alt' => 'logo',
                 'class' =>
                     'img-fluid']) ?>
                 <ul>
