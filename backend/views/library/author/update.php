@@ -102,7 +102,7 @@
             ],
     );
     echo $form->field($model, 'site_id')->hiddenInput(['value' => Parametr::siteId()])->label(false);
-    echo $form->field($model, 'website')->hiddenInput(['value' => Parametr::siteName()])->label(false);
+    echo $form->field($model, 'website')->hiddenInput(['value' => Parametr::siteHost()])->label(false);
     echo $form->field($model, 'contact')->hiddenInput(['value' => Parametr::siteName()])->label(false);
     echo $form->field($model, 'typeId')->hiddenInput(['value' => 1])->label(false);
     echo $form->field($model, 'text')->hiddenInput(['value' => 'text'])->label(false);
