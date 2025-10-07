@@ -2,11 +2,11 @@
     
     return [
         // Основные параметры приложения
-        'adminEmail'                    => 'admin@110-kod-biznesa-rf_col-12.webp.ru',
-        'supportEmail'                  => 'support@110-kod-biznesa-rf_col-12.webp.ru',
-        'senderEmail'                   => 'noreply@110-kod-biznesa-rf_col-12.webp.ru',
-        'orderEmail'                    => 'order@110-kod-biznesa-rf_col-12.webp.ru',
-        'senderName'                    => '110-kod-biznesa-rf_col-12.webp.ru mailer',
+        'adminEmail'                    => 'admin@kod-biznesa-rf',
+        'supportEmail'                  => 'support@kod-biznesa-rf',
+        'senderEmail'                   => 'noreply@kod-biznesa-rf',
+        'orderEmail'                    => 'order@kod-biznesa-rf',
+        'senderName'                    => 'kod-biznesa-rf mailer',
         
         // Пользовательские настройки
         'user.passwordResetTokenExpire' => 3600,              // 1 час
@@ -146,9 +146,9 @@
         'notifications'                 => [
             'email' => [
                 'enabled'   => true,
-                'fromEmail' => 'noreply@110-kod-biznesa-rf_col-12.webp.ru',
+                'fromEmail' => 'noreply@kod-biznesa-rf',
                 'fromName'  => 'System Notifications',
-                'replyTo'   => 'support@110-kod-biznesa-rf_col-12.webp.ru',
+                'replyTo'   => 'support@kod-biznesa-rf',
             ],
             'sms'   => [
                 'enabled'  => YII_ENV_PROD,

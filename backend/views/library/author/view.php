@@ -68,6 +68,9 @@
                         <?= FormatHelper::asHtml($model->description)
                         ?>
                     </div>
+                    <div class='card-footer'>
+                        <?= ButtonHelper::update($model->id, 'Редактировать') ?>
+                    </div>
                 </div>
             </div>
 
